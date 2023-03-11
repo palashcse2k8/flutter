@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'widgets/alerts.dart';
-import 'defaultpage.dart';
+import 'widgets/defaultpage.dart';
 
 void main() {
   runApp(const MyApp());
