@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'alerts.dart';
+import 'widgets/alerts.dart';
 import 'defaultpage.dart';
 
 void main() {
