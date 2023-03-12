@@ -1,5 +1,5 @@
 
 enum DrawerNavigationItem {
   home,
-  userManual
+  userManual,
 }

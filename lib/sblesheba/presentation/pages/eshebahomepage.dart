@@ -19,27 +19,20 @@ class EshebaHomePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           PopupMenuButton(itemBuilder: (context) {
-            return [
-              const PopupMenuItem(
-                  child: ListTile(
-                title: Text("Bangla"),
-                trailing: Radio(
-                  value: null,
-                  groupValue: 0,
-                  onChanged: null,
-                ),
-              )),
-              const PopupMenuItem(
-                  child: ListTile(
-                title: Text("English"),
-                trailing: Radio(
-                  value: null,
-                  groupValue: null,
-                  onChanged: null,
-                ),
-              )),
-            ];
+              return [
+                buildPopUpItem (
+                context,
+                text: 'Bangla',
+                  val: 0,
+              ),
+              buildPopUpItem (
+                context,
+                text: 'English',
+                val: 1,
+              )];
           }, onSelected: (value) {
+            final provider = Provider.of<DrawerNavigationProvider>(context, listen: false);
+            provider.sePopUpMenutNavigationItem(value);
             if (value == 0) {
               print("My account menu is selected.");
             } else if (value == 1) {
@@ -53,36 +46,8 @@ class EshebaHomePage extends StatelessWidget {
       drawer: Drawer(
         child: ListView(
           children: [
-            Container(
-              color: Colors.amber,
-              height: 200,
-              child: Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      Constants.sonaliBankBanner,
-                      height: 100,
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      "Sonali eSheba",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    const Text(
-                      "1.5.0",
-                      textDirection: TextDirection.ltr,
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            getDrawerHeader()
+            ,
             buildMenuItem(
               context,
               item: DrawerNavigationItem.home,
@@ -100,6 +65,59 @@ class EshebaHomePage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget getDrawerHeader (){
+  return Container(
+    color: Colors.amber,
+    height: 200,
+    child: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Image.asset(
+            Constants.sonaliBankBanner,
+            height: 100,
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          const Text(
+            "Sonali eSheba",
+            textAlign: TextAlign.left,
+            style: TextStyle(color: Colors.white),
+          ),
+          const Text(
+            "1.5.0",
+            textDirection: TextDirection.ltr,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+PopupMenuEntry buildPopUpItem (
+BuildContext context, {
+required String text, required int val
+}) {
+    final provider = Provider.of<DrawerNavigationProvider>(context, listen: false);
+    final selectedIndex = provider.popUpMenuSelectedIndex;
+
+      return PopupMenuItem(
+        value: val,
+          child: ListTile(
+            title: Text(text),
+            trailing: Radio(
+              value: val,
+              groupValue: selectedIndex,
+              onChanged: null,
+            ),
+          ));
+
 }
 
 Widget buildMenuItem(
