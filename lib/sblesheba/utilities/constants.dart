@@ -2,13 +2,41 @@
 class Constants {
 
   //assets names
-  static String sonaliBankBanner = 'sonali-bank-banner.jpg';
-  static String sonaliBankLogo = 'sonali-bank-logo.png';
-  static String addAccountIcon = 'add-account-icon.png';
-  static String buetLogo = 'add-account-icon.png';
-  // static String addAccountIcon = 'add-account-icon.png';
-  // static String addAccountIcon = 'add-account-icon.png';
-  // static String addAccountIcon = 'add-account-icon.png';
+  static String sonaliBankBanner = 'assets/sonali-bank-banner.jpg';
+  static String sonaliBankLogo = 'assets/sonali-bank-logo.png';
+
+  //=========service icons======================
+  static String addAccountIcon = 'assets/add-account-icon.png';
+  static String buetIcon = 'assets/buet-icon.png';
+  static String xiAdmissionIcon = 'assets/xi_admission_icon.png';
+
+  static String cashFeeIcon = 'assets/cahs_fee-icon.png';
+  static String bhbfcIcon = 'assets/bhbfc-icon.png';
+  static String incomeTaxIcon = 'assets/govt-fees-icon.png';
+
+  static String travelTaxIcno = 'assets/travel-tax-icon.png';
+  static String remitQueryIcon = 'assets/remmit-query-icon.png';
+  static String vatFeeIcon = 'assets/govt-fees-icon.png';
+
+  static String nationUniversityFeeIcon = 'assets/national-university-fee-icon.png';
+  static String bondPaymentIcon = 'assets/govt-fees-icon.png';
+  static String ePassportIcon = 'assets/epassport-icon.png';
+
+  static String kamalapurIcdIcon = 'assets/kamalapur_icd-icon.png';
+  static String policeClearanceIcon = 'assets/police_clearance-icon.png';
+  static String butexIcon = 'assets/butex-icon.png';
+
+  static String jkknuIcon = 'assets/jkkniu-icon.png';
+  static String hscFeesIcon = 'assets/hsc_fee-icon.png';
+  static String sonaliEWalletIcon = 'assets/sonali-e-wallet-icon.png';
+
+  static String sevenCollegeicon = 'assets/seven_college_icon.png';
+  static String customerServiceFormIcon = 'assets/govt-fees-icon.png';
+  static String surokkhaIcon = 'assets/surokkha-icon.png';
+
+  static String sourceTaxCertIcon = 'assets/source-tax-cert-icon.png';
+  static String dpdcIcon = 'assets/dpdc-icon.png';
+  static String btclIcon = 'assets/btcl_logo-icon.png';
 
   //service names
   static String ACCCOUNT_OPPENING = "Open Bank A/C";
@@ -35,7 +63,14 @@ class Constants {
   static String SOURCE_TAX_CERT = "Source Tax Cert.";
   static String DPDC = "DPDC";
   static String BTCL = "BTCL";
-
-
-
 }
+
+enum ServiceId {
+  ACCCOUNT_OPPENING,
+  BUET_FEE,
+  XI_ADMISSION
+}
+
+
+//important links to upderstand the logics
+// go route examle github link : https://github.com/antonio-nicolau/flutter-go_router-with-nested-navigation
