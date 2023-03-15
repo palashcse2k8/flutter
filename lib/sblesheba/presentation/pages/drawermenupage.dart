@@ -10,14 +10,11 @@ Drawer getDrawer(BuildContext context) {
     child: ListView(
       children: [
         getDrawerHeader(),
-        buildMenuItem(
-          context,
-          item: DrawerNavigationItem.home,
+        const BuildMenuItem(item: DrawerNavigationItem.home,
           text: 'Home',
-          icon: Icons.home,
-        ),
-        buildMenuItem(
-          context,
+          icon: Icons.home,),
+
+        const BuildMenuItem(
           item: DrawerNavigationItem.userManual,
           text: 'User Manual',
           icon: Icons.book,
@@ -29,7 +26,7 @@ Drawer getDrawer(BuildContext context) {
 
 Widget getDrawerHeader() {
   return Container(
-    color: Colors.amber,
+    color: Colors.orange,
     height: 200,
     child: Padding(
       padding: const EdgeInsets.all(20.0),
@@ -60,32 +57,47 @@ Widget getDrawerHeader() {
   );
 }
 
-Widget buildMenuItem(
-  BuildContext context, {
-  required DrawerNavigationItem item,
-  required String text,
-  required IconData icon,
-}) {
-  final provider = Provider.of<DrawerNavigationProvider>(context);
-  final currentItem = provider.navigationItem;
-  final isSelected = item == currentItem;
+class BuildMenuItem extends StatefulWidget {
+  final DrawerNavigationItem item;
+  final String text;
+  final IconData icon;
 
-  final color = isSelected ? Colors.blue : Colors.black54;
+  const BuildMenuItem({super.key,
+    required this.item,
+    required this.text,
+    required this.icon,
+  });
 
-  return Material(
-    color: Colors.transparent,
-    child: ListTile(
-      selected: isSelected,
-      selectedTileColor: Colors.blueGrey,
-      leading: Icon(icon, color: color),
-      title: Text(text, style: TextStyle(color: color, fontSize: 16)),
-      onTap: () => selectItem(context, item),
-    ),
-  );
+  @override
+  State<BuildMenuItem> createState() => _BuildMenuItemState();
+}
+
+class _BuildMenuItemState extends State<BuildMenuItem> {
+
+  @override
+  Widget build(BuildContext context) {
+    final provider = Provider.of<DrawerNavigationProvider>(context);
+    final currentItem = provider.navigationItem;
+    final isSelected = widget.item == currentItem;
+
+    final color = isSelected ? Colors.blue : Colors.black54;
+
+    return Material(
+      color: Colors.transparent,
+      child: ListTile(
+        selected: isSelected,
+        selectedTileColor: Colors.black26,
+        leading: Icon(widget.icon, color: color),
+        title: Text(widget.text, style: TextStyle(color: color, fontSize: 16)),
+        onTap: () => selectItem(context, widget.item),
+      ),
+    );
+  }
 }
 
 void selectItem(BuildContext context, DrawerNavigationItem item) {
   final provider =
       Provider.of<DrawerNavigationProvider>(context, listen: false);
   provider.setNavigationItem(item);
+  Navigator.pop(context);
 }

@@ -14,7 +14,7 @@ class _AccountOpeningPageState extends State<AccountOpeningPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           "Account Opening Page"
         ),
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account_openning_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/error_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/eshebahomepage.dart';
 import 'package:flutterbascis/sblesheba/provider/navigationprovider.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
@@ -29,11 +30,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => buildPages();
 
@@ -56,7 +59,6 @@ class _MainPageState extends State<MainPage> {
 // GoRouter configuration
 final _router = GoRouter(
   initialLocation: '/',
-  errorPageBuilder: null,
   routes: [
     GoRoute(
       name: 'home',
@@ -70,6 +72,26 @@ final _router = GoRouter(
       builder: (context, state) => const AccountOpeningPage(),
     ),
   ],
+  errorBuilder: (context, state) => const ErrorScreen(),
+  // errorPageBuilder: (context, state) => MaterialPage(
+  //   key: state.pageKey,
+  //   child: Scaffold(
+  //     appBar: AppBar(
+  //         centerTitle: true,
+  //         title: const Text(
+  //             "Coming Soon....!"
+  //         )
+  //     ),
+  //     body:  const Center(
+  //       child: Text(
+  //         "Nothing to show. Coming Soon.....!",
+  //         style: TextStyle(
+  //             fontSize: 20
+  //         ),
+  //       ),
+  //     ),
+  //   ),
+  // ),
   redirect: (context, state) {
     late bool isAuthenticated =
         true; // Add your logic to check whether a user is authenticated or not

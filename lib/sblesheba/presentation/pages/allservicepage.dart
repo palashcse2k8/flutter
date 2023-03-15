@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
-import 'package:go_router/go_router.dart';
+
+import 'custom_service_widget.dart';
 
 class AllServicesPage extends StatefulWidget {
   const AllServicesPage({super.key});
@@ -24,72 +25,144 @@ class _AllServicesPageState extends State<AllServicesPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.ACCCOUNT_OPPENING, pathToIamgeIcon: Constants.addAccountIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.BUET_FEE, pathToIamgeIcon: Constants.buetIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.XI_ADMISSION, pathToIamgeIcon: Constants.xiAdmissionIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.ACCCOUNT_OPPENING,
+                      pathToIamgeIcon: Constants.addAccountIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.BUET_FEE,
+                      pathToIamgeIcon: Constants.buetIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.XI_ADMISSION,
+                      pathToIamgeIcon: Constants.xiAdmissionIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.CAHS_FEE, pathToIamgeIcon: Constants.cashFeeIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.BHBFC, pathToIamgeIcon: Constants.bhbfcIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.INCOME_TAX, pathToIamgeIcon: Constants.incomeTaxIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.CAHS_FEE,
+                      pathToIamgeIcon: Constants.cashFeeIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.BHBFC,
+                      pathToIamgeIcon: Constants.bhbfcIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.INCOME_TAX,
+                      pathToIamgeIcon: Constants.incomeTaxIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.TRAVEL_TAX, pathToIamgeIcon: Constants.travelTaxIcno, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.REMIT_QUERY, pathToIamgeIcon: Constants.remitQueryIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.VAT_FEE, pathToIamgeIcon: Constants.vatFeeIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.TRAVEL_TAX,
+                      pathToIamgeIcon: Constants.travelTaxIcno,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.REMIT_QUERY,
+                      pathToIamgeIcon: Constants.remitQueryIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.VAT_FEE,
+                      pathToIamgeIcon: Constants.vatFeeIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.NATIONAL_UNIVERSITY_FEES, pathToIamgeIcon: Constants.nationUniversityFeeIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.BOND_PAYMENT, pathToIamgeIcon: Constants.bondPaymentIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.VAT_FEE, pathToIamgeIcon: Constants.vatFeeIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.NATIONAL_UNIVERSITY_FEES,
+                      pathToIamgeIcon: Constants.nationUniversityFeeIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.BOND_PAYMENT,
+                      pathToIamgeIcon: Constants.bondPaymentIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.VAT_FEE,
+                      pathToIamgeIcon: Constants.vatFeeIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.KAMALAPUR_ICD, pathToIamgeIcon: Constants.kamalapurIcdIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.POLICE_CLEARANCE, pathToIamgeIcon: Constants.policeClearanceIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.BUTEX, pathToIamgeIcon: Constants.butexIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.KAMALAPUR_ICD,
+                      pathToIamgeIcon: Constants.kamalapurIcdIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.POLICE_CLEARANCE,
+                      pathToIamgeIcon: Constants.policeClearanceIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.BUTEX,
+                      pathToIamgeIcon: Constants.butexIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.JKKNU, pathToIamgeIcon: Constants.jkknuIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.HSC_FEES, pathToIamgeIcon: Constants.hscFeesIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.SONALI_E_WALLET, pathToIamgeIcon: Constants.sonaliEWalletIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.JKKNU,
+                      pathToIamgeIcon: Constants.jkknuIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.HSC_FEES,
+                      pathToIamgeIcon: Constants.hscFeesIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.SONALI_E_WALLET,
+                      pathToIamgeIcon: Constants.sonaliEWalletIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.SEVEN_COLLEGE_FEES, pathToIamgeIcon: Constants.sevenCollegeicon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.CUSTOMER_SERVICE_FORM, pathToIamgeIcon: Constants.customerServiceFormIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.SUROKKHA, pathToIamgeIcon: Constants.surokkhaIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.SEVEN_COLLEGE_FEES,
+                      pathToIamgeIcon: Constants.sevenCollegeicon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.CUSTOMER_SERVICE_FORM,
+                      pathToIamgeIcon: Constants.customerServiceFormIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.SUROKKHA,
+                      pathToIamgeIcon: Constants.surokkhaIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(lebel: Constants.SOURCE_TAX_CERT, pathToIamgeIcon: Constants.sourceTaxCertIcon, id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(lebel: Constants.DPDC, pathToIamgeIcon: Constants.dpdcIcon, id: ServiceId.BUET_FEE),
-                  CustomWidget(lebel: Constants.BTCL, pathToIamgeIcon: Constants.btclIcon, id: ServiceId.XI_ADMISSION),
+                  CustomWidget(
+                      lebel: Constants.SOURCE_TAX_CERT,
+                      pathToIamgeIcon: Constants.sourceTaxCertIcon,
+                      id: ServiceId.ACCCOUNT_OPPENING),
+                  CustomWidget(
+                      lebel: Constants.DPDC,
+                      pathToIamgeIcon: Constants.dpdcIcon,
+                      id: ServiceId.BUET_FEE),
+                  CustomWidget(
+                      lebel: Constants.BTCL,
+                      pathToIamgeIcon: Constants.btclIcon,
+                      id: ServiceId.XI_ADMISSION),
                 ],
               )
             ],
@@ -105,18 +178,19 @@ class _AllServicesPageState extends State<AllServicesPage> {
       child: Row(
         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
-                  "Sonali eSheba",
-                  style: TextStyle(fontSize: 20, color: Colors.white, ),
-                ),
-                Text(
-                  "Banking Services in Hand",
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                )
-              ]),
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
+            Text(
+              "Sonali eSheba",
+              style: TextStyle(
+                fontSize: 20,
+                color: Colors.white,
+              ),
+            ),
+            Text(
+              "Banking Services in Hand",
+              style: TextStyle(fontSize: 15, color: Colors.white),
+            )
+          ]),
           Expanded(
             child: Image.asset(
               Constants.sonaliBankLogo,
@@ -134,52 +208,3 @@ SizedBox getRowDivider() {
   double rowDividerSpace = 20;
   return SizedBox(height: rowDividerSpace);
 }
-
-class CustomWidget extends StatelessWidget {
-
-  final String lebel, pathToIamgeIcon;
-  final ServiceId id;
-  const CustomWidget({super.key, required this.lebel, required this.pathToIamgeIcon, required this.id});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: (){
-        // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You Clicked : $lebel")));
-        debugPrint(lebel);
-        context.pushNamed(lebel);
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.blueGrey,
-            border: Border.all(),
-            borderRadius: const BorderRadius.all(Radius.circular(10))),
-        width: 100,
-        height: 100,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const SizedBox(height: 12),
-            Expanded(
-              child: Image.asset(
-                pathToIamgeIcon,
-                height: 50,
-                width: 50,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              lebel,
-              style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10),
-            const Divider(
-              color: Colors.white,
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
