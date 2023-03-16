@@ -16,7 +16,7 @@ class CustomWidget extends StatelessWidget {
       onTap: (){
         // ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("You Clicked : $lebel")));
         debugPrint(lebel);
-        context.push(lebel);
+        context.pushNamed(lebel);
       },
       child: Container(
         decoration: BoxDecoration(

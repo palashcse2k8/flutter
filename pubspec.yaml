@@ -16,6 +16,9 @@ dependencies:
   intl: ^0.18.0
   provider:
   go_router: ^6.2.0
+  sqflite: any
+  path_provider: any
+  flutter_pdfview: ^1.2.9
 
 dev_dependencies:
   flutter_test:
@@ -26,4 +29,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/pdf/
 

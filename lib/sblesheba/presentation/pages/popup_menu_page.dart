@@ -41,12 +41,17 @@ PopupMenuEntry buildPopUpItem (
   return PopupMenuItem(
       value: val,
       child: ListTile(
-        title: Text(text),
+        title: FittedBox(
+          child: Text(text, style: const TextStyle(
+            fontSize: 15,
+          ),
+            maxLines: 1,
+          ),
+        ),
         trailing: Radio(
           value: val,
           groupValue: selectedIndex,
           onChanged: null,
         ),
       ));
-
 }

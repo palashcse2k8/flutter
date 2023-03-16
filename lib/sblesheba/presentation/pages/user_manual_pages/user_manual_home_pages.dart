@@ -1,4 +1,8 @@
+
 import 'package:flutter/material.dart';
+import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
+import 'package:flutterbascis/sblesheba/provider/navigationprovider.dart';
+import 'package:provider/provider.dart';
 
 class UserManualHomePage extends StatefulWidget {
   const UserManualHomePage({super.key});
@@ -24,15 +28,15 @@ class _UserManualHomePageState extends State<UserManualHomePage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  getUserManualButton("Bank Account Opening Manual"),
-                  SizedBox(height: 10,),
-                  getUserManualButton("Buet Fee Payment Manual"),
-                  SizedBox(height: 10,),
-                  getUserManualButton("XI Admission Fee Manual"),
-                  SizedBox(height: 10,),
-                  getUserManualButton("Travel Tax Payment Manual"),
-                  SizedBox(height: 10,),
-                  getUserManualButton("E-Passport Fee Manual"),
+                  getUserManualButton(context, "Bank Account Opening Manual"),
+                  const SizedBox(height: 10,),
+                  getUserManualButton(context, "Buet Fee Payment Manual"),
+                  const SizedBox(height: 10,),
+                  getUserManualButton(context, "XI Admission Fee Manual"),
+                  const SizedBox(height: 10,),
+                  getUserManualButton(context, "Travel Tax Payment Manual"),
+                  const SizedBox(height: 10,),
+                  getUserManualButton(context, "E-Passport Fee Manual"),
                 ],
               ),
             ),
@@ -43,7 +47,7 @@ class _UserManualHomePageState extends State<UserManualHomePage> {
   }
 }
 
-Widget getUserManualButton(String text) {
+Widget getUserManualButton(BuildContext context, String text) {
   return Container(
     decoration: BoxDecoration(
         color: Colors.cyan, borderRadius: BorderRadius.circular(20)),
@@ -55,7 +59,12 @@ Widget getUserManualButton(String text) {
           padding:
           MaterialStateProperty.all(const EdgeInsets.all(10)),
         ),
-        onPressed: null,
+        onPressed: (){
+          debugPrint("pdf clicked!");
+          final provider =
+          Provider.of<DrawerNavigationProvider>(context, listen: false);
+          provider.setNavigationItem(DrawerNavigationItem.pdfViewer);
+          },
         child: Text(
           text.toUpperCase(),
           style: const TextStyle(fontSize: 15, color: Colors.white),

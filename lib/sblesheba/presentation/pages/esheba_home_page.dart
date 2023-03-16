@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/allservicepage.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/popupmenupage.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/all_services_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/popup_menu_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/pdf_viewer_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/user_manual_home_pages.dart';
 import 'package:provider/provider.dart';
 
 import '../../provider/navigationprovider.dart';
-import 'drawermenupage.dart';
+import 'drawer_menu_page.dart';
 
 class EshebaHomePage extends StatelessWidget {
   const EshebaHomePage({super.key});
@@ -25,6 +26,10 @@ class EshebaHomePage extends StatelessWidget {
       case DrawerNavigationItem.userManual:
         page = const UserManualHomePage();
         break;
+      case DrawerNavigationItem.pdfViewer:
+        page = const MyPDFViewer();
+        break;
+
       default:
         throw UnimplementedError('no widget for $DrawerNavigationItem.userManual');
     }
