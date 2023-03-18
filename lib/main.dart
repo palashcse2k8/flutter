@@ -10,7 +10,9 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
-  // runApp(MaterialApp(home: MyDatabaseApp()));
+  // runApp(const MaterialApp(
+  //     debugShowCheckedModeBanner: false,
+  //     home: MyLearningHomePage(title: 'Flutter Learning',)));
 }
 
 class MyApp extends StatelessWidget {

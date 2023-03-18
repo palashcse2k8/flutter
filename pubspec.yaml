@@ -19,6 +19,8 @@ dependencies:
   sqflite: any
   path_provider: any
   flutter_pdfview: ^1.2.9
+  connectivity_plus: any
+  http:
 
 dev_dependencies:
   flutter_test:
