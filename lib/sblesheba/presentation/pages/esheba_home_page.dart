@@ -37,7 +37,8 @@ class EshebaHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Sonali eSheba"),
-        backgroundColor: Colors.orange,
+        backgroundColor: const Color(0xffFF9A00),
+        // backgroundColor: const Color.fromARGB(255,154,0,255),
         centerTitle: true,
         actions: [
           getPopUpMenu(context),

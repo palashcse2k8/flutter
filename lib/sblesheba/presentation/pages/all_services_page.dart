@@ -15,7 +15,9 @@ class _AllServicesPageState extends State<AllServicesPage> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Container(
-        color: Colors.cyan,
+        // color: Colors.cyan,
+        // color: const Color(0xff0083a7),
+        color: Color(0xffe27639),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
