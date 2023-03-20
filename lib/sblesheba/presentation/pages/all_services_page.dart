@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/web_view_services.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 
+import 'account_openning/account_openning_page.dart';
 import 'custom_service_widget.dart';
 
 class AllServicesPage extends StatefulWidget {
@@ -16,8 +18,8 @@ class _AllServicesPageState extends State<AllServicesPage> {
     return SingleChildScrollView(
       child: Container(
         // color: Colors.cyan,
-        // color: const Color(0xff0083a7),
-        color: Color(0xffe27639),
+        color: const Color(0xff0083a7),
+        // color: Color(0xffe27639),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
@@ -27,14 +29,32 @@ class _AllServicesPageState extends State<AllServicesPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: Constants.ACCCOUNT_OPPENING,
-                      pathToIamgeIcon: Constants.addAccountIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: Constants.BUET_FEE,
-                      pathToIamgeIcon: Constants.buetIcon,
-                      id: ServiceId.BUET_FEE),
+                  GestureDetector(
+                    onTap: () {
+                      debugPrint('clicked: $Constants.ACCCOUNT_OPPENING');
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>
+                        const AccountOpeningPage()
+                      ));
+                    },
+                    child: CustomWidget(
+                        lebel: Constants.ACCCOUNT_OPPENING,
+                        pathToIamgeIcon: Constants.addAccountIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      debugPrint('clicked: $Constants.BUET_FEE');
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) =>
+                          const WebViewApp(url: 'https://sbl.com.bd:7070/BUET/Fee/')
+                      ));
+                    },
+                    child: CustomWidget(
+                        lebel: Constants.BUET_FEE,
+                        pathToIamgeIcon: Constants.buetIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
                   CustomWidget(
                       lebel: Constants.XI_ADMISSION,
                       pathToIamgeIcon: Constants.xiAdmissionIcon,
@@ -178,21 +198,28 @@ class _AllServicesPageState extends State<AllServicesPage> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Row(
-        // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-            Text(
-              "Sonali eSheba",
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.white,
-              ),
+          Expanded(
+            child: Center(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+                    Text(
+                      "Sonali eSheba",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      "Banking Services in Hand",
+                      style: TextStyle(fontSize: 15, color: Colors.white),
+                    )
+                  ]),
             ),
-            Text(
-              "Banking Services in Hand",
-              style: TextStyle(fontSize: 15, color: Colors.white),
-            )
-          ]),
+          ),
           Expanded(
             child: Image.asset(
               Constants.sonaliBankLogo,

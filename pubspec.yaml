@@ -21,6 +21,7 @@ dependencies:
   flutter_pdfview: ^1.2.9
   connectivity_plus: any
   http:
+  webview_flutter: ^4.0.7
 
 dev_dependencies:
   flutter_test:
