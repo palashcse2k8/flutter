@@ -1,4 +1,59 @@
 
+class AppService {
+  //service names
+  static String ACCCOUNT_OPPENING = "Open Bank A/C";
+  static String BUET_FEE = "BUET Fee";
+  static String XI_ADMISSION = "XI Admission";
+  static String CAHS_FEE = "CAHS Fee";
+  static String BHBFC = "BHBFC";
+  static String INCOME_TAX = "Income Tax";
+  static String TRAVEL_TAX = "Travel Tax";
+  static String REMIT_QUERY = "Remit Query";
+  static String VAT_FEE = "VAT Fee";
+  static String NATIONAL_UNIVERSITY_FEES = "NU Fees";
+  static String BOND_PAYMENT = "Bond Payment";
+  static String E_PASSPORT_FEE = "e-Passport Fee";
+  static String KAMALAPUR_ICD = "Kamalapur ICD";
+  static String POLICE_CLEARANCE = "Police Clearance";
+  static String BUTEX = "BUTEX";
+  static String JKKNU = "JKKNU";
+  static String HSC_FEES = "HSC Fees";
+  static String SONALI_E_WALLET = "Sonali e-Wallet";
+  static String SEVEN_COLLEGE_FEES = "7 College Fees";
+  static String CUSTOMER_SERVICE_FORM = "Customer Service Form";
+  static String SUROKKHA = "Surokkha";
+  static String SOURCE_TAX_CERT = "Source Tax Cert.";
+  static String DPDC = "DPDC";
+  static String BTCL = "BTCL";
+}
+
+class ServiceURL {
+  static String ACCCOUNT_OPPENING = "Open Bank A/C";
+  static String BUET_FEE = 'https://sbl.com.bd:7070/BUET/Fee';
+  static String XI_ADMISSION = 'https://sbl.com.bd:7070/xiClassAdmission/Fee';
+  static String CAHS_FEE = "https://sbl.com.bd:7070/CAHS/Payment";
+  static String BHBFC = "https://sbl.com.bd:7070/BHBFC/Fee";
+  static String INCOME_TAX = "https://nbr.sblesheba.com/IncomeTax/Payment";
+  static String TRAVEL_TAX = "https://sbl.com.bd:7070/nbrTravelTax/Collection/Create";
+  static String REMIT_QUERY = "Remit Query";
+  static String VAT_FEE = "https://nbr.sblesheba.com/VatOnline/Payment";
+  static String NATIONAL_UNIVERSITY_FEES = "https://sbl.com.bd:7070/CollegeFee/Payment";
+  static String BOND_PAYMENT = "https://nbr.sblesheba.com/Bond/Payment";
+  static String E_PASSPORT_FEE = "e-Passport Fee";
+  static String KAMALAPUR_ICD = "https://sbl.com.bd:7070/ICD/Payment/Index";
+  static String POLICE_CLEARANCE = "https://sbl.com.bd:7070/PoliceClrFee/Fee";
+  static String BUTEX = "https://sbl.com.bd:7070/BUTEX/Payment";
+  static String JKKNU = "https://sbl.com.bd:7070/JKKNIU/Home";
+  static String HSC_FEES = "https://sbl.com.bd:7070/HSCFee/Payment";
+  static String SONALI_E_WALLET = "Sonali e-Wallet";
+  static String SEVEN_COLLEGE_FEES = "https://sbl.com.bd:7070/SevenCollege/Payment";
+  static String CUSTOMER_SERVICE_FORM = "Customer Service Form";
+  static String SUROKKHA = 'https://surokkha.gov.bd/';
+  static String SOURCE_TAX_CERT = "Source Tax Cert.";
+  static String DPDC = "https://sbl.com.bd:7070/DPDC/Bill/Query";
+  static String BTCL = "https://sbl.com.bd:7070/BTCL/Fee";
+}
+
 class Constants {
   //assets names
   static String sonaliBankBanner = 'assets/sonali-bank-banner.jpg';
@@ -36,32 +91,6 @@ class Constants {
   static String sourceTaxCertIcon = 'assets/source-tax-cert-icon.png';
   static String dpdcIcon = 'assets/dpdc-icon.png';
   static String btclIcon = 'assets/btcl_logo-icon.png';
-
-  //service names
-  static String ACCCOUNT_OPPENING = "Open Bank A/C";
-  static String BUET_FEE = "BUET Fee";
-  static String XI_ADMISSION = "XI Admission";
-  static String CAHS_FEE = "CAHS Fee";
-  static String BHBFC = "BHBFC";
-  static String INCOME_TAX = "Income Tax";
-  static String TRAVEL_TAX = "Travel Tax";
-  static String REMIT_QUERY = "Remit Query";
-  static String VAT_FEE = "VAT Fee";
-  static String NATIONAL_UNIVERSITY_FEES = "NU Fees";
-  static String BOND_PAYMENT = "Bond Payment";
-  static String E_PASSPORT_FEE = "e-Passport Fee";
-  static String KAMALAPUR_ICD = "Kamalapur ICD";
-  static String POLICE_CLEARANCE = "Police Clearance";
-  static String BUTEX = "BUTEX";
-  static String JKKNU = "JKKNU";
-  static String HSC_FEES = "HSC Fees";
-  static String SONALI_E_WALLET = "Sonali e-Wallet";
-  static String SEVEN_COLLEGE_FEES = "7 College Fees";
-  static String CUSTOMER_SERVICE_FORM = "Customer Service Form";
-  static String SUROKKHA = "Surokkha";
-  static String SOURCE_TAX_CERT = "Source Tax Cert.";
-  static String DPDC = "DPDC";
-  static String BTCL = "BTCL";
 }
 
 enum ServiceId {

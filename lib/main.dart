@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account_openning_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/error_page/error_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/esheba_home_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/web_view_services.dart';
 import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
@@ -31,33 +32,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// class MainPage extends StatefulWidget {
-//   const MainPage({super.key});
-//
-//   @override
-//   MainPageState createState() => MainPageState();
-// }
-
-// class MainPageState extends State<MainPage> {
-//   @override
-//   Widget build(BuildContext context) => buildPages();
-//
-//   Widget buildPages() {
-//     final provider = Provider.of<DrawerNavigationProvider>(context);
-//     final navigationItem = provider.navigationItem;
-//
-//     switch (navigationItem) {
-//       case DrawerNavigationItem.home:
-//         return const EshebaHomePage();
-//       case DrawerNavigationItem.userManual:
-//         return const EshebaHomePage();
-//
-//       default:
-//         return const EshebaHomePage();
-//     }
-//   }
-// }
-
 // GoRouter configuration
 
 final _router = GoRouter(
@@ -70,10 +44,30 @@ final _router = GoRouter(
       builder: (context, state) => const EshebaHomePage(),
     ),
     GoRoute(
-      name: Constants.ACCCOUNT_OPPENING,
+      name: AppService.ACCCOUNT_OPPENING,
       path: '/account_opening_page',
       builder: (context, state) => const AccountOpeningPage(),
     ),
+    GoRoute(
+      name: AppService.BUET_FEE,
+      path: '/buet_fee',
+      builder: (context, state) => WebViewApp(url: ServiceURL.BUET_FEE),
+    ),
+    // GoRoute(
+    //   name: AppService.XI_ADMISSION,
+    //   path: '/buet_fee',
+    //   builder: (context, state) => WebViewApp(url: ServiceURL.XI_ADMISSION),
+    // ),
+    // GoRoute(
+    //   name: AppService.BUET_FEE,
+    //   path: '/buet_fee',
+    //   builder: (context, state) => WebViewApp(url: ServiceURL.BUET_FEE),
+    // ),
+    // GoRoute(
+    //   name: AppService.BUET_FEE,
+    //   path: '/buet_fee',
+    //   builder: (context, state) => WebViewApp(url: ServiceURL.BUET_FEE),
+    // )
   ],
   errorBuilder: (context, state) => const ErrorScreen(),
   // errorPageBuilder: (context, state) => MaterialPage(

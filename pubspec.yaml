@@ -22,6 +22,7 @@ dependencies:
   connectivity_plus: any
   http:
   webview_flutter: ^4.0.7
+  url_launcher: ^6.1.10
 
 dev_dependencies:
   flutter_test:

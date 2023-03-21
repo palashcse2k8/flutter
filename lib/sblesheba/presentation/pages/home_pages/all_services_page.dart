@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/web_view_services.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
+import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
-import '../account_openning/account_openning_page.dart';
 import 'custom_service_widget.dart';
 
 class AllServicesPage extends StatefulWidget {
@@ -32,31 +33,34 @@ class _AllServicesPageState extends State<AllServicesPage> {
                   GestureDetector(
                     onTap: () {
                       debugPrint('clicked: $Constants.ACCCOUNT_OPPENING');
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) =>
-                        const AccountOpeningPage()
-                      ));
+                      context.pushNamed(AppService.ACCCOUNT_OPPENING);
+                      // Navigator.push(context, MaterialPageRoute(
+                      //     builder: (context) =>
+                      //   const AccountOpeningPage()
+                      // ));
                     },
                     child: CustomWidget(
-                        lebel: Constants.ACCCOUNT_OPPENING,
+                        lebel: AppService.ACCCOUNT_OPPENING,
                         pathToIamgeIcon: Constants.addAccountIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
                     onTap: () {
                       debugPrint('clicked: $Constants.BUET_FEE');
-                      Navigator.push(context, MaterialPageRoute(
-                          builder: (context) =>
-                          const WebViewApp(url: 'https://sbl.com.bd:7070/BUET/Fee/')
-                      ));
+                      context.pushNamed(AppService.BUET_FEE);
+                      // context.push(AppService.BUET_FEE);
+                      // Navigator.push(context, MaterialPageRoute(
+                      //     builder: (context) =>
+                      //     const WebViewApp(url: 'https://sbl.com.bd:7070/BUET/Fee/')
+                      // ));
                     },
                     child: CustomWidget(
-                        lebel: Constants.BUET_FEE,
+                        lebel: AppService.BUET_FEE,
                         pathToIamgeIcon: Constants.buetIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   CustomWidget(
-                      lebel: Constants.XI_ADMISSION,
+                      lebel: AppService.XI_ADMISSION,
                       pathToIamgeIcon: Constants.xiAdmissionIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -66,15 +70,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.CAHS_FEE,
+                      lebel: AppService.CAHS_FEE,
                       pathToIamgeIcon: Constants.cashFeeIcon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.BHBFC,
+                      lebel: AppService.BHBFC,
                       pathToIamgeIcon: Constants.bhbfcIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.INCOME_TAX,
+                      lebel: AppService.INCOME_TAX,
                       pathToIamgeIcon: Constants.incomeTaxIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -84,15 +88,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.TRAVEL_TAX,
+                      lebel: AppService.TRAVEL_TAX,
                       pathToIamgeIcon: Constants.travelTaxIcno,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.REMIT_QUERY,
+                      lebel: AppService.REMIT_QUERY,
                       pathToIamgeIcon: Constants.remitQueryIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.VAT_FEE,
+                      lebel: AppService.VAT_FEE,
                       pathToIamgeIcon: Constants.vatFeeIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -102,15 +106,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.NATIONAL_UNIVERSITY_FEES,
+                      lebel: AppService.NATIONAL_UNIVERSITY_FEES,
                       pathToIamgeIcon: Constants.nationUniversityFeeIcon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.BOND_PAYMENT,
+                      lebel: AppService.BOND_PAYMENT,
                       pathToIamgeIcon: Constants.bondPaymentIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.VAT_FEE,
+                      lebel: AppService.VAT_FEE,
                       pathToIamgeIcon: Constants.vatFeeIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -120,15 +124,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.KAMALAPUR_ICD,
+                      lebel: AppService.KAMALAPUR_ICD,
                       pathToIamgeIcon: Constants.kamalapurIcdIcon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.POLICE_CLEARANCE,
+                      lebel: AppService.POLICE_CLEARANCE,
                       pathToIamgeIcon: Constants.policeClearanceIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.BUTEX,
+                      lebel: AppService.BUTEX,
                       pathToIamgeIcon: Constants.butexIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -138,15 +142,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.JKKNU,
+                      lebel: AppService.JKKNU,
                       pathToIamgeIcon: Constants.jkknuIcon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.HSC_FEES,
+                      lebel: AppService.HSC_FEES,
                       pathToIamgeIcon: Constants.hscFeesIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.SONALI_E_WALLET,
+                      lebel: AppService.SONALI_E_WALLET,
                       pathToIamgeIcon: Constants.sonaliEWalletIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
@@ -156,17 +160,28 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.SEVEN_COLLEGE_FEES,
+                      lebel: AppService.SEVEN_COLLEGE_FEES,
                       pathToIamgeIcon: Constants.sevenCollegeicon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.CUSTOMER_SERVICE_FORM,
+                      lebel: AppService.CUSTOMER_SERVICE_FORM,
                       pathToIamgeIcon: Constants.customerServiceFormIcon,
                       id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: Constants.SUROKKHA,
-                      pathToIamgeIcon: Constants.surokkhaIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () async {
+                      String url = ServiceURL.SUROKKHA;
+                      if (!await launchUrl(
+                        Uri.parse(url),
+                        mode: LaunchMode.externalApplication,
+                      )) {
+                        throw Exception('Could not launch $url');
+                      }
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.SUROKKHA,
+                        pathToIamgeIcon: Constants.surokkhaIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
@@ -174,15 +189,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   CustomWidget(
-                      lebel: Constants.SOURCE_TAX_CERT,
+                      lebel: AppService.SOURCE_TAX_CERT,
                       pathToIamgeIcon: Constants.sourceTaxCertIcon,
                       id: ServiceId.ACCCOUNT_OPPENING),
                   CustomWidget(
-                      lebel: Constants.DPDC,
+                      lebel: AppService.DPDC,
                       pathToIamgeIcon: Constants.dpdcIcon,
                       id: ServiceId.BUET_FEE),
                   CustomWidget(
-                      lebel: Constants.BTCL,
+                      lebel: AppService.BTCL,
                       pathToIamgeIcon: Constants.btclIcon,
                       id: ServiceId.XI_ADMISSION),
                 ],
