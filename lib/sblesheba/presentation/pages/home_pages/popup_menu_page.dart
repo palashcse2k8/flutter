@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../provider/navigationprovider.dart';
+import '../../../provider/navigationprovider.dart';
 
 PopupMenuButton getPopUpMenu(BuildContext context){
   final provider = Provider.of<DrawerNavigationProvider>(context, listen: false);

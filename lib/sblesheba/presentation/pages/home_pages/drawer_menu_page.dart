@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../datamodel/navigation_item.dart';
-import '../../provider/navigationprovider.dart';
-import '../../utilities/constants.dart';
+import '../../../datamodel/navigation_item.dart';
+import '../../../provider/navigationprovider.dart';
+import '../../../utilities/constants.dart';
 
 Drawer getDrawer(BuildContext context) {
   return Drawer(

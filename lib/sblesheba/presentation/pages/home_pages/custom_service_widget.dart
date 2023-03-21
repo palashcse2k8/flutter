@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../utilities/constants.dart';
+import '../../../utilities/constants.dart';
 
 class CustomWidget extends StatelessWidget {
   final String lebel, pathToIamgeIcon;

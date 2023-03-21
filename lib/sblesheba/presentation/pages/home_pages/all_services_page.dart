@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/web_view_services.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/web_view_services.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 
-import 'account_openning/account_openning_page.dart';
+import '../account_openning/account_openning_page.dart';
 import 'custom_service_widget.dart';
 
 class AllServicesPage extends StatefulWidget {

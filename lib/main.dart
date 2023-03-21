@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account_openning_page.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/error_page.dart';
-import 'package:flutterbascis/sblesheba/presentation/pages/esheba_home_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/error_page/error_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/esheba_home_page.dart';
 import 'package:flutterbascis/sblesheba/provider/navigationprovider.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
