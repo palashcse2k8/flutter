@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (BuildContext context) => DrawerNavigationProvider(),
+      create: (BuildContext context) => AppNavigationProvider(),
       child: MaterialApp.router(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.deepOrange),

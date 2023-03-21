@@ -85,7 +85,7 @@ class _PDFScreenState extends State<PDFScreen> {
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
             final provider =
-            Provider.of<DrawerNavigationProvider>(context, listen: false);
+            Provider.of<AppNavigationProvider>(context, listen: false);
             provider.setNavigationItem(DrawerNavigationItem.userManual);
           },
         ),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../datamodel/PDFFileSelector.dart';
 import '../datamodel/navigation_item.dart';
 
-class DrawerNavigationProvider extends ChangeNotifier {
+class AppNavigationProvider extends ChangeNotifier {
   DrawerNavigationItem _navigationItem = DrawerNavigationItem.home;
   int _popUpMenuSelectedIndex = 1;
 

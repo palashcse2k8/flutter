@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../../../provider/navigation_provider.dart';
 
 PopupMenuButton getPopUpMenu(BuildContext context){
-  final provider = Provider.of<DrawerNavigationProvider>(context, listen: false);
+  final provider = Provider.of<AppNavigationProvider>(context, listen: false);
   return PopupMenuButton(itemBuilder: (context) {
     return [
       buildPopUpItem (
@@ -35,7 +35,7 @@ PopupMenuEntry buildPopUpItem (
     BuildContext context, {
       required String text, required int val
     }) {
-  final provider = Provider.of<DrawerNavigationProvider>(context, listen: false);
+  final provider = Provider.of<AppNavigationProvider>(context, listen: false);
   final selectedIndex = provider.popUpMenuSelectedIndex;
 
   return PopupMenuItem(

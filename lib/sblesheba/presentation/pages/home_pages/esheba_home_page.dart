@@ -16,7 +16,7 @@ class EshebaHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    var appState = context.watch<DrawerNavigationProvider>();
+    var appState = context.watch<AppNavigationProvider>();
     // var appState = Provider.of<DrawerNavigationProvider>(context, listen: false);
     Widget page;
     switch (appState.navigationItem) {

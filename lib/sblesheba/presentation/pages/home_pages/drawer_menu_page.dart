@@ -76,7 +76,7 @@ class _BuildMenuItemState extends State<BuildMenuItem> {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<DrawerNavigationProvider>(context);
+    final provider = Provider.of<AppNavigationProvider>(context);
     final currentItem = provider.navigationItem;
     final isSelected = widget.item == currentItem;
 
@@ -97,7 +97,7 @@ class _BuildMenuItemState extends State<BuildMenuItem> {
 
 void selectItem(BuildContext context, DrawerNavigationItem item) {
   final provider =
-      Provider.of<DrawerNavigationProvider>(context, listen: false);
+      Provider.of<AppNavigationProvider>(context, listen: false);
   provider.setNavigationItem(item);
   Navigator.pop(context);
 }

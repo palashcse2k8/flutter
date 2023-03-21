@@ -75,7 +75,7 @@ class UserManualButton extends StatelessWidget {
         onPressed: () {
           // debugPrint("pdf clicked!");
           final provider =
-          Provider.of<DrawerNavigationProvider>(context, listen: false);
+          Provider.of<AppNavigationProvider>(context, listen: false);
 
           if(text == UserManual.ePassPortManual) {
             provider.sePdfPath(PDF.ePassPortManual);
