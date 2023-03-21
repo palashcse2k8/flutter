@@ -59,114 +59,204 @@ class _AllServicesPageState extends State<AllServicesPage> {
                         pathToIamgeIcon: Constants.buetIcon,
                         id: ServiceId.BUET_FEE),
                   ),
-                  CustomWidget(
-                      lebel: AppService.XI_ADMISSION,
-                      pathToIamgeIcon: Constants.xiAdmissionIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.XI_ADMISSION);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.XI_ADMISSION,
+                        pathToIamgeIcon: Constants.xiAdmissionIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.CAHS_FEE,
-                      pathToIamgeIcon: Constants.cashFeeIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.BHBFC,
-                      pathToIamgeIcon: Constants.bhbfcIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.INCOME_TAX,
-                      pathToIamgeIcon: Constants.incomeTaxIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.CAHS_FEE);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.CAHS_FEE,
+                        pathToIamgeIcon: Constants.cashFeeIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.BHBFC);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.BHBFC,
+                        pathToIamgeIcon: Constants.bhbfcIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.INCOME_TAX);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.INCOME_TAX,
+                        pathToIamgeIcon: Constants.incomeTaxIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.TRAVEL_TAX,
-                      pathToIamgeIcon: Constants.travelTaxIcno,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.REMIT_QUERY,
-                      pathToIamgeIcon: Constants.remitQueryIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.VAT_FEE,
-                      pathToIamgeIcon: Constants.vatFeeIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.TRAVEL_TAX);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.TRAVEL_TAX,
+                        pathToIamgeIcon: Constants.travelTaxIcno,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.REMIT_QUERY);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.REMIT_QUERY,
+                        pathToIamgeIcon: Constants.remitQueryIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.VAT_FEE);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.VAT_FEE,
+                        pathToIamgeIcon: Constants.vatFeeIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.NATIONAL_UNIVERSITY_FEES,
-                      pathToIamgeIcon: Constants.nationUniversityFeeIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.BOND_PAYMENT,
-                      pathToIamgeIcon: Constants.bondPaymentIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.VAT_FEE,
-                      pathToIamgeIcon: Constants.vatFeeIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.NATIONAL_UNIVERSITY_FEES);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.NATIONAL_UNIVERSITY_FEES,
+                        pathToIamgeIcon: Constants.nationUniversityFeeIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.BOND_PAYMENT);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.BOND_PAYMENT,
+                        pathToIamgeIcon: Constants.bondPaymentIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.E_PASSPORT_FEE);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.E_PASSPORT_FEE,
+                        pathToIamgeIcon: Constants.ePassportIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.KAMALAPUR_ICD,
-                      pathToIamgeIcon: Constants.kamalapurIcdIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.POLICE_CLEARANCE,
-                      pathToIamgeIcon: Constants.policeClearanceIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.BUTEX,
-                      pathToIamgeIcon: Constants.butexIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.KAMALAPUR_ICD);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.KAMALAPUR_ICD,
+                        pathToIamgeIcon: Constants.kamalapurIcdIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.POLICE_CLEARANCE);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.POLICE_CLEARANCE,
+                        pathToIamgeIcon: Constants.policeClearanceIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.BUTEX);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.BUTEX,
+                        pathToIamgeIcon: Constants.butexIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.JKKNU,
-                      pathToIamgeIcon: Constants.jkknuIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.HSC_FEES,
-                      pathToIamgeIcon: Constants.hscFeesIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.SONALI_E_WALLET,
-                      pathToIamgeIcon: Constants.sonaliEWalletIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.JKKNU);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.JKKNU,
+                        pathToIamgeIcon: Constants.jkknuIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.HSC_FEES);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.HSC_FEES,
+                        pathToIamgeIcon: Constants.hscFeesIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.SONALI_E_WALLET);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.SONALI_E_WALLET,
+                        pathToIamgeIcon: Constants.sonaliEWalletIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               ),
               getRowDivider(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.SEVEN_COLLEGE_FEES,
-                      pathToIamgeIcon: Constants.sevenCollegeicon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.CUSTOMER_SERVICE_FORM,
-                      pathToIamgeIcon: Constants.customerServiceFormIcon,
-                      id: ServiceId.BUET_FEE),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.SEVEN_COLLEGE_FEES);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.SEVEN_COLLEGE_FEES,
+                        pathToIamgeIcon: Constants.sevenCollegeicon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.CUSTOMER_SERVICE_FORM);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.CUSTOMER_SERVICE_FORM,
+                        pathToIamgeIcon: Constants.customerServiceFormIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
                   GestureDetector(
                     onTap: () async {
                       String url = ServiceURL.SUROKKHA;
@@ -188,18 +278,33 @@ class _AllServicesPageState extends State<AllServicesPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  CustomWidget(
-                      lebel: AppService.SOURCE_TAX_CERT,
-                      pathToIamgeIcon: Constants.sourceTaxCertIcon,
-                      id: ServiceId.ACCCOUNT_OPPENING),
-                  CustomWidget(
-                      lebel: AppService.DPDC,
-                      pathToIamgeIcon: Constants.dpdcIcon,
-                      id: ServiceId.BUET_FEE),
-                  CustomWidget(
-                      lebel: AppService.BTCL,
-                      pathToIamgeIcon: Constants.btclIcon,
-                      id: ServiceId.XI_ADMISSION),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.SOURCE_TAX_CERT);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.SOURCE_TAX_CERT,
+                        pathToIamgeIcon: Constants.sourceTaxCertIcon,
+                        id: ServiceId.ACCCOUNT_OPPENING),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.DPDC);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.DPDC,
+                        pathToIamgeIcon: Constants.dpdcIcon,
+                        id: ServiceId.BUET_FEE),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      context.pushNamed(AppService.BTCL);
+                    },
+                    child: CustomWidget(
+                        lebel: AppService.BTCL,
+                        pathToIamgeIcon: Constants.btclIcon,
+                        id: ServiceId.XI_ADMISSION),
+                  ),
                 ],
               )
             ],

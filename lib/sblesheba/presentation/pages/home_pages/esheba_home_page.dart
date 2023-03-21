@@ -47,6 +47,29 @@ class EshebaHomePage extends StatelessWidget {
       drawer: getDrawer(context),
       // body: const AllServicesPage(),
       body: page,
+      floatingActionButton: FloatingActionButton (
+        onPressed: () {
+          debugPrint("Live Chat Clicked");
+        },
+        tooltip: "Live Chat",
+        child: CustomLiveChat(context),
+        // child: const Icon(Icons.add_call),
+      ),
     );
   }
 }
+
+Widget CustomLiveChat (BuildContext context) {
+
+  return Center(
+    child: Column (
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        // Text ("Live Chat"),
+        Icon(Icons.add_call)
+      ],
+    ),
+  );
+  }
+
+
