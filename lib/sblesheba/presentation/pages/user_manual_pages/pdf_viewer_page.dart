@@ -5,75 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:provider/provider.dart';
 
-// class MyPDFViewer extends StatefulWidget {
-//   const MyPDFViewer({super.key});
-//
-//   @override
-//   _MyPDFViewerState createState() => _MyPDFViewerState();
-// }
-
-// class _MyPDFViewerState extends State<MyPDFViewer> {
-//   String pathPDF = "";
-//
-//   @override
-//   // void initState() {
-//   //   super.initState();
-//   //   fromAsset('assets/pdf/buet.pdf', 'buet.pdf').then((f) {
-//   //     setState(() {
-//   //       pathPDF = f.path;
-//   //     });
-//   //   });
-//   // }
-//
-//   // Future<File> fromAsset(String asset, String filename) async {
-//   //   Completer<File> completer = Completer();
-//   //   try {
-//   //     var dir = await getApplicationDocumentsDirectory();
-//   //     File file = File("${dir.path}/$filename");
-//   //     var data = await rootBundle.load(asset);
-//   //     var bytes = data.buffer.asUint8List();
-//   //     await file.writeAsBytes(bytes, flush: true);
-//   //     completer.complete(file);
-//   //   } catch (e) {
-//   //     throw Exception('Error parsing asset file!');
-//   //   }
-//   //   return completer.future;
-//   // }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     final themeData = Theme.of(context);
-//     return MaterialApp(
-//       home: Scaffold(body: Builder(
-//         builder: (BuildContext context) {
-//           return Center(
-//               child: Column(
-//                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//                   children: [
-//                     ElevatedButton(
-//                       child: Text('Tap to Open Document',
-//                           style: themeData.textTheme.headlineMedium
-//                               ?.copyWith(fontSize: 21.0)),
-//                       onPressed: () {
-//                         debugPrint(pathPDF.toString());
-//                         if (pathPDF.isNotEmpty) {
-//                           debugPrint(pathPDF.toString());
-//                           // Navigator.push(
-//                           //   context,
-//                           //   MaterialPageRoute(
-//                           //     builder: (context) => PDFScreen(path: pathPDF),
-//                           //   ),
-//                           // );
-//                         }
-//                       },
-//                     )
-//                   ]));
-//         },
-//       )),
-//     );
-//   }
-// }
+import '../../../datamodel/navigation_item.dart';
+import '../../../provider/navigationprovider.dart';
 
 class PDFScreen extends StatefulWidget {
   final String assetPath;
@@ -93,23 +28,36 @@ class _PDFScreenState extends State<PDFScreen> {
   @override
   void initState() {
     super.initState();
+    pdfFileName = widget.assetPath.split('/').last;
     devicePDFFile = fromAsset(widget.assetPath, pdfFileName);
     devicePDFFile.then((value) => devicePDFPath = value.path);
     // debugPrint(devicePDFPath);
   }
 
   Future<File> fromAsset(String assetPath, String pdfFileName) async {
-    debugPrint("from asset called");
+    // debugPrint("from asset called");
+
+    String? syncPath ;
 
     Completer<File> completer = Completer();
     try {
       var dir = await getApplicationDocumentsDirectory();
-      File file = File("${dir.path}/$pdfFileName");
-      var data = await rootBundle.load(assetPath);
-      var bytes = data.buffer.asUint8List();
-      await file.writeAsBytes(bytes, flush: true);
-      completer.complete(file);
+      syncPath = "${dir.path}/$pdfFileName";
+      debugPrint(syncPath);
+      File file = File(syncPath);
+
+      if (await File(syncPath).exists()) {
+        // debugPrint("file exits");
+        completer.complete(file);
+      } else {
+        // debugPrint("file not exits");
+        var data = await rootBundle.load(assetPath);
+        var bytes = data.buffer.asUint8List();
+        await file.writeAsBytes(bytes, flush: true);
+        completer.complete(file);
+      }
     } catch (e) {
+      debugPrintStack();
       throw Exception('Error parsing asset file!');
     }
     return completer.future;
@@ -122,19 +70,27 @@ class _PDFScreenState extends State<PDFScreen> {
   bool isReady = false;
   String errorMessage = '';
 
+  // @override
+  // void dispose() {
+  //   // TODO: implement dispose
+  //   super.dispose();
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
+          onPressed: () {
+            final provider =
+            Provider.of<DrawerNavigationProvider>(context, listen: false);
+            provider.setNavigationItem(DrawerNavigationItem.userManual);
+          },
+        ),
         title: const Text("Back"),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-        ],
+        centerTitle: true,
       ),
       body: FutureBuilder<File>(
         future: devicePDFFile,
@@ -155,13 +111,13 @@ class _PDFScreenState extends State<PDFScreen> {
                     setState(() {
                       errorMessage = error.toString();
                     });
-                    print(error.toString());
+                    // print(error.toString());
                   },
                   onPageError: (page, error) {
                     setState(() {
                       errorMessage = '$page: ${error.toString()}';
                     });
-                    print('$page: ${error.toString()}');
+                    // print('$page: ${error.toString()}');
                   },
                   onViewCreated: (PDFViewController pdfViewController) {
                     _controller.complete(pdfViewController);
@@ -179,7 +135,7 @@ class _PDFScreenState extends State<PDFScreen> {
               ],
             );
           } else {
-            return const Text("Nothing to show");
+            return const CircularProgressIndicator();
           }
         }
       ),

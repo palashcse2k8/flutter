@@ -27,7 +27,7 @@ class EshebaHomePage extends StatelessWidget {
         page = const UserManualHomePage();
         break;
       case DrawerNavigationItem.pdfViewer:
-        page = const PDFScreen(assetPath: 'assets/pdf/buet.pdf',);
+        page = PDFScreen(assetPath: appState.pdfPath);
         break;
 
       default:

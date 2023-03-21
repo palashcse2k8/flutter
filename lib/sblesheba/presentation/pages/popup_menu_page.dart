@@ -20,7 +20,7 @@ PopupMenuButton getPopUpMenu(BuildContext context){
       )];
   }, onSelected: (value) {
 
-    provider.sePopUpMenutNavigationItem(value);
+    provider.sePopUpMenuNavigationItem(value);
     if (value == 0) {
       print("My account menu is selected.");
     } else if (value == 1) {

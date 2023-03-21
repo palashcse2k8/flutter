@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account_openning_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/error_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/esheba_home_page.dart';
@@ -32,34 +31,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+// class MainPage extends StatefulWidget {
+//   const MainPage({super.key});
+//
+//   @override
+//   MainPageState createState() => MainPageState();
+// }
 
-  @override
-  MainPageState createState() => MainPageState();
-}
-
-class MainPageState extends State<MainPage> {
-  @override
-  Widget build(BuildContext context) => buildPages();
-
-  Widget buildPages() {
-    final provider = Provider.of<DrawerNavigationProvider>(context);
-    final navigationItem = provider.navigationItem;
-
-    switch (navigationItem) {
-      case DrawerNavigationItem.home:
-        return const EshebaHomePage();
-      case DrawerNavigationItem.userManual:
-        return const EshebaHomePage();
-
-      default:
-        return const EshebaHomePage();
-    }
-  }
-}
+// class MainPageState extends State<MainPage> {
+//   @override
+//   Widget build(BuildContext context) => buildPages();
+//
+//   Widget buildPages() {
+//     final provider = Provider.of<DrawerNavigationProvider>(context);
+//     final navigationItem = provider.navigationItem;
+//
+//     switch (navigationItem) {
+//       case DrawerNavigationItem.home:
+//         return const EshebaHomePage();
+//       case DrawerNavigationItem.userManual:
+//         return const EshebaHomePage();
+//
+//       default:
+//         return const EshebaHomePage();
+//     }
+//   }
+// }
 
 // GoRouter configuration
+
 final _router = GoRouter(
   initialLocation: '/',
   routes: [

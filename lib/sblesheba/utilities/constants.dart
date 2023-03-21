@@ -1,6 +1,5 @@
 
 class Constants {
-
   //assets names
   static String sonaliBankBanner = 'assets/sonali-bank-banner.jpg';
   static String sonaliBankLogo = 'assets/sonali-bank-logo.png';
@@ -71,6 +70,23 @@ enum ServiceId {
   XI_ADMISSION
 }
 
+//pdf file names
+
+class UserManual {
+  static const String buetFeeManual = "Buet Fee Payment Manual";
+  static const String accountOpeningManual = "Bank Account Opening Manual";
+  static const String ePassPortManual = "E-Passport Fee Manual";
+  static const String travelTaxManual = "Travel Tax Payment Manual";
+  static const String xiAdmissionManual = "XI Admission Fee Manual";
+}
+
+class PDF {
+  static const String buetFeeManual = 'assets/pdf/buet.pdf';
+  static const String accountOpeningManual = 'assets/pdf/accountopenning.pdf';
+  static const String ePassPortManual = 'assets/pdf/epassportfee.pdf';
+  static const String travelTaxManual = 'assets/pdf/traveltax.pdf';
+  static const String xiAdmissionManual = 'assets/pdf/xipdf.pdf';
+}
 
 //important links to upderstand the logics
 // go route examle github link : https://github.com/antonio-nicolau/flutter-go_router-with-nested-navigation
