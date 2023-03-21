@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
-import 'package:flutterbascis/sblesheba/provider/navigationprovider.dart';
+import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utilities/constants.dart';

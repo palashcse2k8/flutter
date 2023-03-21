@@ -8,7 +8,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../datamodel/navigation_item.dart';
-import '../../../provider/navigationprovider.dart';
+import '../../../provider/navigation_provider.dart';
 
 class PDFScreen extends StatefulWidget {
   final String assetPath;

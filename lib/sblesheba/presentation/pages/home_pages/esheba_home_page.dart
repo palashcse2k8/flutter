@@ -6,7 +6,7 @@ import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/pdf
 import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/user_manual_home_pages.dart';
 import 'package:provider/provider.dart';
 
-import '../../../provider/navigationprovider.dart';
+import '../../../provider/navigation_provider.dart';
 import 'drawer_menu_page.dart';
 
 class EshebaHomePage extends StatelessWidget {
