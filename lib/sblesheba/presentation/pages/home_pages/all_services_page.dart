@@ -1,3 +1,4 @@
+import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
@@ -32,15 +33,15 @@ class _AllServicesPageState extends State<AllServicesPage> {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      debugPrint('clicked: $Constants.ACCCOUNT_OPPENING');
-                      context.pushNamed(AppService.ACCCOUNT_OPPENING);
+                      debugPrint('clicked: $Constants.ACCOUNT_OPENING');
+                      context.pushNamed(AppService.ACCOUNT_OPENING);
                       // Navigator.push(context, MaterialPageRoute(
                       //     builder: (context) =>
                       //   const AccountOpeningPage()
                       // ));
                     },
                     child: CustomWidget(
-                        lebel: AppService.ACCCOUNT_OPPENING,
+                        lebel: AppService.ACCOUNT_OPENING,
                         pathToIamgeIcon: Constants.addAccountIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
@@ -225,8 +226,14 @@ class _AllServicesPageState extends State<AllServicesPage> {
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
-                    onTap: () {
-                      context.pushNamed(AppService.SONALI_E_WALLET);
+                    onTap: () async {
+                      // context.pushNamed(AppService.SONALI_E_WALLET);
+                      String app_package_name = 'bd.com.sonalibank.sw';
+                        LaunchApp.openApp(
+                          androidPackageName: app_package_name,
+                          iosUrlScheme: 'pulsesecure://',
+                          appStoreLink: 'https://play.google.com/store/apps/details?id=bd.com.sonalibank.sw&hl=en&gl=US',
+                        );
                     },
                     child: CustomWidget(
                         lebel: AppService.SONALI_E_WALLET,

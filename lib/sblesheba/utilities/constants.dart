@@ -1,7 +1,7 @@
 
 class AppService {
   //service names
-  static String ACCCOUNT_OPPENING = "Open Bank A/C";
+  static String ACCOUNT_OPENING = "Open Bank A/C";
   static String BUET_FEE = "BUET Fee";
   static String XI_ADMISSION = "XI Admission";
   static String CAHS_FEE = "CAHS Fee";
@@ -56,41 +56,41 @@ class ServiceURL {
 
 class Constants {
   //assets names
-  static String sonaliBankBanner = 'assets/sonali-bank-banner.jpg';
-  static String sonaliBankLogo = 'assets/sonali-bank-logo.png';
+  static String sonaliBankBanner = 'assets/icons/sonali-bank-banner.jpg';
+  static String sonaliBankLogo = 'assets/icons/sonali-bank-logo.png';
 
   //=========service icons======================
-  static String addAccountIcon = 'assets/add-account-icon.png';
-  static String buetIcon = 'assets/buet-icon.png';
-  static String xiAdmissionIcon = 'assets/xi_admission_icon.png';
+  static String addAccountIcon = 'assets/icons/add-account-icon.png';
+  static String buetIcon = 'assets/icons/buet-icon.png';
+  static String xiAdmissionIcon = 'assets/icons/xi_admission_icon.png';
 
-  static String cashFeeIcon = 'assets/cahs_fee-icon.png';
-  static String bhbfcIcon = 'assets/bhbfc-icon.png';
-  static String incomeTaxIcon = 'assets/govt-fees-icon.png';
+  static String cashFeeIcon = 'assets/icons/cahs_fee-icon.png';
+  static String bhbfcIcon = 'assets/icons/bhbfc-icon.png';
+  static String incomeTaxIcon = 'assets/icons/govt-fees-icon.png';
 
-  static String travelTaxIcno = 'assets/travel-tax-icon.png';
-  static String remitQueryIcon = 'assets/remmit-query-icon.png';
-  static String vatFeeIcon = 'assets/govt-fees-icon.png';
+  static String travelTaxIcno = 'assets/icons/travel-tax-icon.png';
+  static String remitQueryIcon = 'assets/icons/remmit-query-icon.png';
+  static String vatFeeIcon = 'assets/icons/govt-fees-icon.png';
 
-  static String nationUniversityFeeIcon = 'assets/national-university-fee-icon.png';
-  static String bondPaymentIcon = 'assets/govt-fees-icon.png';
-  static String ePassportIcon = 'assets/epassport-icon.png';
+  static String nationUniversityFeeIcon = 'assets/icons/national-university-fee-icon.png';
+  static String bondPaymentIcon = 'assets/icons/govt-fees-icon.png';
+  static String ePassportIcon = 'assets/icons/epassport-icon.png';
 
-  static String kamalapurIcdIcon = 'assets/kamalapur_icd-icon.png';
-  static String policeClearanceIcon = 'assets/police_clearance-icon.png';
-  static String butexIcon = 'assets/butex-icon.png';
+  static String kamalapurIcdIcon = 'assets/icons/kamalapur_icd-icon.png';
+  static String policeClearanceIcon = 'assets/icons/police_clearance-icon.png';
+  static String butexIcon = 'assets/icons/butex-icon.png';
 
-  static String jkknuIcon = 'assets/jkkniu-icon.png';
-  static String hscFeesIcon = 'assets/hsc_fee-icon.png';
-  static String sonaliEWalletIcon = 'assets/sonali-e-wallet-icon.png';
+  static String jkknuIcon = 'assets/icons/jkkniu-icon.png';
+  static String hscFeesIcon = 'assets/icons/hsc_fee-icon.png';
+  static String sonaliEWalletIcon = 'assets/icons/sonali-e-wallet-icon.png';
 
-  static String sevenCollegeicon = 'assets/seven_college_icon.png';
-  static String customerServiceFormIcon = 'assets/govt-fees-icon.png';
-  static String surokkhaIcon = 'assets/surokkha-icon.png';
+  static String sevenCollegeicon = 'assets/icons/seven_college_icon.png';
+  static String customerServiceFormIcon = 'assets/icons/govt-fees-icon.png';
+  static String surokkhaIcon = 'assets/icons/surokkha-icon.png';
 
-  static String sourceTaxCertIcon = 'assets/source-tax-cert-icon.png';
-  static String dpdcIcon = 'assets/dpdc-icon.png';
-  static String btclIcon = 'assets/btcl_logo-icon.png';
+  static String sourceTaxCertIcon = 'assets/icons/source-tax-cert-icon.png';
+  static String dpdcIcon = 'assets/icons/dpdc-icon.png';
+  static String btclIcon = 'assets/icons/btcl_logo-icon.png';
 }
 
 enum ServiceId {

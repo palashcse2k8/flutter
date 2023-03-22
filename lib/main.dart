@@ -17,6 +17,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ final _router = GoRouter(
       builder: (context, state) => const EshebaHomePage(),
     ),
     GoRoute(
-      name: AppService.ACCCOUNT_OPPENING,
+      name: AppService.ACCOUNT_OPENING,
       path: '/account-opening-page',
       builder: (context, state) => const AccountOpeningPage(),
     ),

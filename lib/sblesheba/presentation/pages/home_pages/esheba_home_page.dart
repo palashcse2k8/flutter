@@ -5,8 +5,10 @@ import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/popup_menu
 import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/pdf_viewer_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/user_manual_home_pages.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../provider/navigation_provider.dart';
+import '../../../utilities/constants.dart';
 import 'drawer_menu_page.dart';
 
 class EshebaHomePage extends StatelessWidget {
@@ -48,8 +50,15 @@ class EshebaHomePage extends StatelessWidget {
       // body: const AllServicesPage(),
       body: page,
       floatingActionButton: FloatingActionButton (
-        onPressed: () {
-          debugPrint("Live Chat Clicked");
+        onPressed: () async {
+          // debugPrint("Live Chat Clicked");
+          String url = "tel: +8809610016639";
+          if (!await launchUrl(
+          Uri.parse(url),
+          mode: LaunchMode.externalNonBrowserApplication,
+          )) {
+          throw Exception('Could not launch $url');
+          }
         },
         tooltip: "Live Chat",
         child: CustomLiveChat(context),
@@ -64,7 +73,7 @@ Widget CustomLiveChat (BuildContext context) {
   return Center(
     child: Column (
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
+      children: const [
         // Text ("Live Chat"),
         Icon(Icons.add_call)
       ],
