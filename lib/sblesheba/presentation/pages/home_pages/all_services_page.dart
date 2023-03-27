@@ -3,18 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 import 'custom_service_widget.dart';
 
-class AllServicesPage extends StatefulWidget {
+class AllServicesPage extends StatelessWidget {
   const AllServicesPage({super.key});
 
-  @override
-  State<AllServicesPage> createState() => _AllServicesPageState();
-}
-
-class _AllServicesPageState extends State<AllServicesPage> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -229,11 +223,12 @@ class _AllServicesPageState extends State<AllServicesPage> {
                     onTap: () async {
                       // context.pushNamed(AppService.SONALI_E_WALLET);
                       String app_package_name = 'bd.com.sonalibank.sw';
-                        LaunchApp.openApp(
-                          androidPackageName: app_package_name,
-                          iosUrlScheme: 'pulsesecure://',
-                          appStoreLink: 'https://play.google.com/store/apps/details?id=bd.com.sonalibank.sw&hl=en&gl=US',
-                        );
+                      LaunchApp.openApp(
+                        androidPackageName: app_package_name,
+                        iosUrlScheme: 'pulsesecure://',
+                        appStoreLink:
+                            'https://play.google.com/store/apps/details?id=bd.com.sonalibank.sw&hl=en&gl=US',
+                      );
                     },
                     child: CustomWidget(
                         lebel: AppService.SONALI_E_WALLET,

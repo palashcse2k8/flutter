@@ -3,6 +3,8 @@ import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/acco
 import 'package:flutterbascis/sblesheba/presentation/pages/error_page/error_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/esheba_home_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/web_view_services.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/pdf_viewer_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/user_manual_pages/user_manual_home_pages.dart';
 import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
@@ -17,6 +19,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+
   //final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
@@ -45,9 +48,27 @@ final _router = GoRouter(
       builder: (context, state) => const EshebaHomePage(),
     ),
     GoRoute(
+      name: 'user-manual-page',
+      // Optional, add name to your routes. Allows you navigate by name instead of path
+      path: '/user-manual-page',
+      builder: (context, state) => const UserManualHomePage(),
+    ),
+    GoRoute(
+      name: 'user-manual-page-with-pdf',
+      // Optional, add name to your routes. Allows you navigate by name instead of path
+      path: '/user-manual-page-with-pdf',
+      builder: (context, state) {
+        final provider =
+            Provider.of<AppNavigationProvider>(context, listen: false);
+        return PDFScreen(assetPath: provider.pdfPath);
+      },
+    ),
+    GoRoute(
       name: AppService.ACCOUNT_OPENING,
       path: '/account-opening-page',
-      builder: (context, state) => const AccountOpeningPage(),
+      builder: (context, state) => const AccountOpeningPage(
+        setupPageRoute: '/account-opening-page',
+      ),
     ),
     GoRoute(
       name: AppService.BUET_FEE,
@@ -92,7 +113,8 @@ final _router = GoRouter(
     GoRoute(
       name: AppService.NATIONAL_UNIVERSITY_FEES,
       path: '/national-university-fee',
-      builder: (context, state) => WebViewApp(url: ServiceURL.NATIONAL_UNIVERSITY_FEES),
+      builder: (context, state) =>
+          WebViewApp(url: ServiceURL.NATIONAL_UNIVERSITY_FEES),
     ),
     GoRoute(
       name: AppService.BOND_PAYMENT,
@@ -121,7 +143,7 @@ final _router = GoRouter(
     ),
     GoRoute(
       name: AppService.JKKNU,
-      path: '/jatio-kobi-kaji-najrl-islam-university',
+      path: '/jatio-kobi-kaji-najrul-islam-university',
       builder: (context, state) => WebViewApp(url: ServiceURL.JKKNU),
     ),
     GoRoute(
@@ -137,12 +159,14 @@ final _router = GoRouter(
     GoRoute(
       name: AppService.SEVEN_COLLEGE_FEES,
       path: '/seven-college-fees',
-      builder: (context, state) => WebViewApp(url: ServiceURL.SEVEN_COLLEGE_FEES),
+      builder: (context, state) =>
+          WebViewApp(url: ServiceURL.SEVEN_COLLEGE_FEES),
     ),
     GoRoute(
       name: AppService.CUSTOMER_SERVICE_FORM,
       path: '/customer-service-form',
-      builder: (context, state) => WebViewApp(url: ServiceURL.CUSTOMER_SERVICE_FORM),
+      builder: (context, state) =>
+          WebViewApp(url: ServiceURL.CUSTOMER_SERVICE_FORM),
     ),
     GoRoute(
       name: AppService.SUROKKHA,

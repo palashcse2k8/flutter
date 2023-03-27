@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../datamodel/navigation_item.dart';
 import '../../../provider/navigation_provider.dart';
 import '../../../utilities/constants.dart';
 
-Drawer getDrawer(BuildContext context) {
-  return Drawer(
-    child: ListView(
-      children: [
-        getDrawerHeader(),
-        const BuildMenuItem(item: DrawerNavigationItem.home,
-          text: 'Home',
-          icon: Icons.home,),
+class CustomerDrawer extends StatelessWidget {
+  const CustomerDrawer({Key? key}) : super(key: key);
 
-        const BuildMenuItem(
-          item: DrawerNavigationItem.userManual,
-          text: 'User Manual',
-          icon: Icons.book,
-        ),
-      ],
-    ),
-  );
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        children: [
+          getDrawerHeader(),
+          const BuildMenuItem(item: DrawerNavigationItem.home,
+            text: 'Home',
+            icon: Icons.home,),
+
+          const BuildMenuItem(
+            item: DrawerNavigationItem.userManual,
+            text: 'User Manual',
+            icon: Icons.book,
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 Widget getDrawerHeader() {
@@ -57,7 +63,7 @@ Widget getDrawerHeader() {
   );
 }
 
-class BuildMenuItem extends StatefulWidget {
+class BuildMenuItem extends StatelessWidget {
   final DrawerNavigationItem item;
   final String text;
   final IconData icon;
@@ -69,16 +75,10 @@ class BuildMenuItem extends StatefulWidget {
   });
 
   @override
-  State<BuildMenuItem> createState() => _BuildMenuItemState();
-}
-
-class _BuildMenuItemState extends State<BuildMenuItem> {
-
-  @override
   Widget build(BuildContext context) {
     final provider = Provider.of<AppNavigationProvider>(context);
     final currentItem = provider.navigationItem;
-    final isSelected = widget.item == currentItem;
+    final isSelected = item == currentItem;
 
     final color = isSelected ? Colors.blue : Colors.black54;
 
@@ -87,9 +87,9 @@ class _BuildMenuItemState extends State<BuildMenuItem> {
       child: ListTile(
         selected: isSelected,
         selectedTileColor: Colors.black26,
-        leading: Icon(widget.icon, color: color),
-        title: Text(widget.text, style: TextStyle(color: color, fontSize: 16)),
-        onTap: () => selectItem(context, widget.item),
+        leading: Icon(icon, color: color),
+        title: Text(text, style: TextStyle(color: color, fontSize: 16)),
+        onTap: () => selectItem(context, item),
       ),
     );
   }
@@ -100,4 +100,10 @@ void selectItem(BuildContext context, DrawerNavigationItem item) {
       Provider.of<AppNavigationProvider>(context, listen: false);
   provider.setNavigationItem(item);
   Navigator.pop(context);
+  if (item == DrawerNavigationItem.home){
+    context.go("/");
+  } else {
+    context.pushNamed("user-manual-page");
+  }
+
 }

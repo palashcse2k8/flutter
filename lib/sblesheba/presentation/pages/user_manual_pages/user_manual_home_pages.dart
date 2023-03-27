@@ -1,64 +1,68 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbascis/sblesheba/datamodel/navigation_item.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/custom_appbar.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/drawer_menu_page.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/floating_action_button.dart';
 import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../../../utilities/constants.dart';
 
-class UserManualHomePage extends StatefulWidget {
+class UserManualHomePage extends StatelessWidget {
   const UserManualHomePage({super.key});
 
   @override
-  State<UserManualHomePage> createState() => _UserManualHomePageState();
-}
-
-class _UserManualHomePageState extends State<UserManualHomePage> {
-  @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(5.0),
-      child: Column(children: [
-        Flexible(
-          child: Container(
-            width: double.infinity,
-            height: double.infinity,
-            // padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-                color: Colors.cyan, borderRadius: BorderRadius.circular(20)),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  UserManualButton( text: UserManual.accountOpeningManual),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  UserManualButton(text: UserManual.buetFeeManual),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  UserManualButton(text: UserManual.xiAdmissionManual),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  UserManualButton(text: UserManual.travelTaxManual),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  UserManualButton(text: UserManual.ePassPortManual),
-                ],
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      drawer: const CustomerDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.all(5.0),
+        child: Column(children: [
+          Flexible(
+            child: Container(
+              width: double.infinity,
+              height: double.infinity,
+              // padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.cyan, borderRadius: BorderRadius.circular(20)),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    UserManualButton(text: UserManual.accountOpeningManual),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    UserManualButton(text: UserManual.buetFeeManual),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    UserManualButton(text: UserManual.xiAdmissionManual),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    UserManualButton(text: UserManual.travelTaxManual),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    UserManualButton(text: UserManual.ePassPortManual),
+                  ],
+                ),
               ),
             ),
-          ),
-        )
-      ]),
+          )
+        ]),
+      ),
+      floatingActionButton: const CustomFloatingActionButton(),
     );
   }
 }
 
 class UserManualButton extends StatelessWidget {
-  String? text;
-  UserManualButton({super.key, required this.text});
+  final String? text;
+
+  const UserManualButton({super.key, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -75,21 +79,21 @@ class UserManualButton extends StatelessWidget {
         onPressed: () {
           // debugPrint("pdf clicked!");
           final provider =
-          Provider.of<AppNavigationProvider>(context, listen: false);
+              Provider.of<AppNavigationProvider>(context, listen: false);
 
-          if(text == UserManual.ePassPortManual) {
+          if (text == UserManual.ePassPortManual) {
             provider.sePdfPath(PDF.ePassPortManual);
-          } else if(text == UserManual.accountOpeningManual) {
+          } else if (text == UserManual.accountOpeningManual) {
             provider.sePdfPath(PDF.accountOpeningManual);
-          } else if(text == UserManual.travelTaxManual) {
+          } else if (text == UserManual.travelTaxManual) {
             provider.sePdfPath(PDF.travelTaxManual);
-          } else if(text == UserManual.buetFeeManual) {
+          } else if (text == UserManual.buetFeeManual) {
             provider.sePdfPath(PDF.buetFeeManual);
-          } else if(text == UserManual.xiAdmissionManual) {
+          } else if (text == UserManual.xiAdmissionManual) {
             provider.sePdfPath(PDF.xiAdmissionManual);
           }
-
-          provider.setNavigationItem(DrawerNavigationItem.pdfViewer);
+          // provider.setNavigationItem(DrawerNavigationItem.pdfViewer);
+          context.pushNamed("user-manual-page-with-pdf");
         },
         child: Text(
           text!.toUpperCase(),
