@@ -6,6 +6,7 @@ import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../../utilities/app_language.dart';
 import '../../../utilities/constants.dart';
 
 class UserManualHomePage extends StatelessWidget {
@@ -29,24 +30,24 @@ class UserManualHomePage extends StatelessWidget {
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    UserManualButton(text: UserManual.accountOpeningManual),
-                    SizedBox(
+                  children: [
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('account_opening_manual')?? ""),
+                    const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: UserManual.buetFeeManual),
-                    SizedBox(
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('buet_fee_manual')?? ""),
+                    const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: UserManual.xiAdmissionManual),
-                    SizedBox(
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('xi_admission_manual')?? ""),
+                    const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: UserManual.travelTaxManual),
-                    SizedBox(
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('travel_tax_manual')?? ""),
+                    const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: UserManual.ePassPortManual),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('e_passport_manual')?? ""),
                   ],
                 ),
               ),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import '../datamodel/PDFFileSelector.dart';
 import '../datamodel/navigation_item.dart';
@@ -10,7 +9,9 @@ class AppNavigationProvider extends ChangeNotifier {
   String _pdfPath = PDF.buetFeeManual;
 
   DrawerNavigationItem get navigationItem => _navigationItem;
+
   int get popUpMenuSelectedIndex => _popUpMenuSelectedIndex;
+
   String get pdfPath => _pdfPath;
 
   void setNavigationItem(DrawerNavigationItem navigationItem) {
@@ -23,7 +24,6 @@ class AppNavigationProvider extends ChangeNotifier {
     _pdfPath = path;
     // notifyListeners();
   }
-
 
   void sePopUpMenuNavigationItem(int selectedIndex) {
     _popUpMenuSelectedIndex = selectedIndex;

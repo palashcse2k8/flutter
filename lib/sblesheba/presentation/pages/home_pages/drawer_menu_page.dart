@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../../../datamodel/navigation_item.dart';
 import '../../../provider/navigation_provider.dart';
+import '../../../utilities/app_language.dart';
 import '../../../utilities/constants.dart';
 
 class CustomerDrawer extends StatelessWidget {
@@ -14,14 +15,14 @@ class CustomerDrawer extends StatelessWidget {
     return Drawer(
       child: ListView(
         children: [
-          getDrawerHeader(),
-          const BuildMenuItem(item: DrawerNavigationItem.home,
-            text: 'Home',
+          getDrawerHeader(context),
+          BuildMenuItem(item: DrawerNavigationItem.home,
+            text: AppLocalizations.of(context)?.translate('app_home')?? "",
             icon: Icons.home,),
 
-          const BuildMenuItem(
+          BuildMenuItem(
             item: DrawerNavigationItem.userManual,
-            text: 'User Manual',
+            text: AppLocalizations.of(context)?.translate('app_user_manual')?? "",
             icon: Icons.book,
           ),
         ],
@@ -30,7 +31,7 @@ class CustomerDrawer extends StatelessWidget {
   }
 }
 
-Widget getDrawerHeader() {
+Widget getDrawerHeader(BuildContext context) {
   return Container(
     color: Colors.orange,
     height: 200,
@@ -47,15 +48,15 @@ Widget getDrawerHeader() {
           const SizedBox(
             height: 10,
           ),
-          const Text(
-            "Sonali eSheba",
+          Text(
+            AppLocalizations.of(context)?.translate('title')?? "",
             textAlign: TextAlign.left,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
-          const Text(
-            "1.5.0",
+          Text(
+            AppLocalizations.of(context)?.translate('app_version')?? "",
             textDirection: TextDirection.ltr,
-            style: TextStyle(color: Colors.white),
+            style: const TextStyle(color: Colors.white),
           ),
         ],
       ),
