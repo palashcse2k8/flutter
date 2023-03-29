@@ -3,42 +3,44 @@ import 'package:flutter/material.dart';
 import '../../../utilities/constants.dart';
 
 class CustomWidget extends StatelessWidget {
-  final String lebel, pathToIamgeIcon;
+  final String label, pathToImageIcon;
   final ServiceId id;
 
   const CustomWidget(
       {super.key,
-      required this.lebel,
-      required this.pathToIamgeIcon,
+      required this.label,
+      required this.pathToImageIcon,
       required this.id});
 
   void getServicePage() {}
 
   @override
   Widget build(BuildContext context) {
+    double deviceSize = MediaQuery.of(context).size.width;
     return Container(
       decoration: BoxDecoration(
-          color: Colors.blueGrey,
+          color: const Color.fromARGB(255, 6,110,139),
           border: Border.all(),
           borderRadius: const BorderRadius.all(Radius.circular(10))),
-      width: 100,
-      height: 100,
+      width: deviceSize/4,
+      height: 115,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const SizedBox(height: 12),
           Expanded(
             child: Image.asset(
-              pathToIamgeIcon,
+              pathToImageIcon,
               height: 50,
               width: 50,
             ),
           ),
           const SizedBox(height: 10),
           Text(
-            lebel,
+            textAlign: TextAlign.center,
+            label,
             style: const TextStyle(
-                color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
           const Divider(

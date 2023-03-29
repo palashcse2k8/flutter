@@ -1,5 +1,7 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account-opening-page1.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/account_openning/account_openning_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/error_page/error_page.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/esheba_home_page.dart';
@@ -93,9 +95,10 @@ final _router = GoRouter(
     GoRoute(
       name: AppService.ACCOUNT_OPENING,
       path: '/account-opening-page',
-      builder: (context, state) => const AccountOpeningPage(
-        setupPageRoute: '/account-opening-page',
-      ),
+      // builder: (context, state) => const AccountOpeningPage(
+      //   setupPageRoute: '/account-opening-page',
+      // ),
+        builder: (context, state) => const AccountOpeningPage1(),
     ),
     GoRoute(
       name: AppService.BUET_FEE,

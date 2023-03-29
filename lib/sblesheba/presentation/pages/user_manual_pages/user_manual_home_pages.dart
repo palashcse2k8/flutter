@@ -31,23 +31,23 @@ class UserManualHomePage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    UserManualButton(text: AppLocalizations.of(context)?.translate('account_opening_manual')?? ""),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('account_opening_manual')?? "", pdfFileName: PDF.accountOpeningManual),
                     const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: AppLocalizations.of(context)?.translate('buet_fee_manual')?? ""),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('buet_fee_manual')?? "", pdfFileName: PDF.buetFeeManual),
                     const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: AppLocalizations.of(context)?.translate('xi_admission_manual')?? ""),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('xi_admission_manual')?? "", pdfFileName: PDF.xiAdmissionManual),
                     const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: AppLocalizations.of(context)?.translate('travel_tax_manual')?? ""),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('travel_tax_manual')?? "", pdfFileName: PDF.travelTaxManual),
                     const SizedBox(
                       height: 10,
                     ),
-                    UserManualButton(text: AppLocalizations.of(context)?.translate('e_passport_manual')?? ""),
+                    UserManualButton(text: AppLocalizations.of(context)?.translate('e_passport_manual')?? "", pdfFileName: PDF.ePassPortManual),
                   ],
                 ),
               ),
@@ -62,43 +62,45 @@ class UserManualHomePage extends StatelessWidget {
 
 class UserManualButton extends StatelessWidget {
   final String? text;
+  final String pdfFileName;
 
-  const UserManualButton({super.key, required this.text});
+  const UserManualButton({super.key, required this.text, required this.pdfFileName});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.cyan, borderRadius: BorderRadius.circular(20)),
+          color: Colors.cyan,
+        borderRadius: BorderRadius.circular(100),
+          shape: BoxShape.rectangle
+      ),
       width: 300,
       height: 50,
       child: ElevatedButton(
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.orange),
-          padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+          // padding: MaterialStateProperty.all(const EdgeInsets.all(10)),
+            shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    side: const BorderSide(color: Colors.white)
+                )
+            )
         ),
+
         onPressed: () {
           // debugPrint("pdf clicked!");
           final provider =
               Provider.of<AppNavigationProvider>(context, listen: false);
-
-          if (text == UserManual.ePassPortManual) {
-            provider.sePdfPath(PDF.ePassPortManual);
-          } else if (text == UserManual.accountOpeningManual) {
-            provider.sePdfPath(PDF.accountOpeningManual);
-          } else if (text == UserManual.travelTaxManual) {
-            provider.sePdfPath(PDF.travelTaxManual);
-          } else if (text == UserManual.buetFeeManual) {
-            provider.sePdfPath(PDF.buetFeeManual);
-          } else if (text == UserManual.xiAdmissionManual) {
-            provider.sePdfPath(PDF.xiAdmissionManual);
-          }
+            provider.sePdfPath(pdfFileName);
           // provider.setNavigationItem(DrawerNavigationItem.pdfViewer);
           context.pushNamed("user-manual-page-with-pdf");
         },
         child: Text(
+          textAlign: TextAlign.center,
           text!.toUpperCase(),
           style: const TextStyle(fontSize: 15, color: Colors.white),
+          // maxLines: 1,
         ),
       ),
     );

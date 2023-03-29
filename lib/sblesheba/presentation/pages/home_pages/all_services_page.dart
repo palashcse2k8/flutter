@@ -1,5 +1,6 @@
 import 'package:external_app_launcher/external_app_launcher.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterbascis/sblesheba/utilities/app_language.dart';
 import 'package:flutterbascis/sblesheba/utilities/constants.dart';
 import 'package:go_router/go_router.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,7 +15,8 @@ class AllServicesPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Container(
         // color: Colors.cyan,
-        color: const Color(0xff0083a7),
+        // color: const Color(0xff0083a7),
+        color: const Color.fromARGB(255, 1, 131, 167),
         // color: Color(0xffe27639),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -27,21 +29,17 @@ class AllServicesPage extends StatelessWidget {
                 children: [
                   GestureDetector(
                     onTap: () {
-                      debugPrint('clicked: $Constants.ACCOUNT_OPENING');
+                      // debugPrint('clicked: $Constants.ACCOUNT_OPENING');
                       context.pushNamed(AppService.ACCOUNT_OPENING);
-                      // Navigator.push(context, MaterialPageRoute(
-                      //     builder: (context) =>
-                      //   const AccountOpeningPage()
-                      // ));
                     },
                     child: CustomWidget(
-                        lebel: AppService.ACCOUNT_OPENING,
-                        pathToIamgeIcon: Constants.addAccountIcon,
+                        label: AppLocalizations.of(context)?.translate("ACCOUNT_OPENING") ?? "",
+                        pathToImageIcon: Constants.addAccountIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
                     onTap: () {
-                      debugPrint('clicked: $Constants.BUET_FEE');
+                      // debugPrint('clicked: $Constants.BUET_FEE');
                       context.pushNamed(AppService.BUET_FEE);
                       // context.push(AppService.BUET_FEE);
                       // Navigator.push(context, MaterialPageRoute(
@@ -50,8 +48,8 @@ class AllServicesPage extends StatelessWidget {
                       // ));
                     },
                     child: CustomWidget(
-                        lebel: AppService.BUET_FEE,
-                        pathToIamgeIcon: Constants.buetIcon,
+                        label: AppLocalizations.of(context)?.translate("BUET_FEE") ?? "",
+                        pathToImageIcon: Constants.buetIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -59,8 +57,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.XI_ADMISSION);
                     },
                     child: CustomWidget(
-                        lebel: AppService.XI_ADMISSION,
-                        pathToIamgeIcon: Constants.xiAdmissionIcon,
+                        label: AppLocalizations.of(context)?.translate("XI_ADMISSION") ?? "",
+                        pathToImageIcon: Constants.xiAdmissionIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -74,8 +72,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.CAHS_FEE);
                     },
                     child: CustomWidget(
-                        lebel: AppService.CAHS_FEE,
-                        pathToIamgeIcon: Constants.cashFeeIcon,
+                        label: AppLocalizations.of(context)?.translate("CAHS_FEE") ?? "",
+                        pathToImageIcon: Constants.cashFeeIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -83,8 +81,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.BHBFC);
                     },
                     child: CustomWidget(
-                        lebel: AppService.BHBFC,
-                        pathToIamgeIcon: Constants.bhbfcIcon,
+                        label: AppLocalizations.of(context)?.translate("BHBFC") ?? "",
+                        pathToImageIcon: Constants.bhbfcIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -92,8 +90,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.INCOME_TAX);
                     },
                     child: CustomWidget(
-                        lebel: AppService.INCOME_TAX,
-                        pathToIamgeIcon: Constants.incomeTaxIcon,
+                        label: AppLocalizations.of(context)?.translate("INCOME_TAX") ?? "",
+                        pathToImageIcon: Constants.incomeTaxIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -107,8 +105,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.TRAVEL_TAX);
                     },
                     child: CustomWidget(
-                        lebel: AppService.TRAVEL_TAX,
-                        pathToIamgeIcon: Constants.travelTaxIcno,
+                        label: AppLocalizations.of(context)?.translate("TRAVEL_TAX") ?? "",
+                        pathToImageIcon: Constants.travelTaxIcno,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -116,8 +114,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.REMIT_QUERY);
                     },
                     child: CustomWidget(
-                        lebel: AppService.REMIT_QUERY,
-                        pathToIamgeIcon: Constants.remitQueryIcon,
+                        label: AppLocalizations.of(context)?.translate("REMIT_QUERY") ?? "",
+                        pathToImageIcon: Constants.remitQueryIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -125,8 +123,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.VAT_FEE);
                     },
                     child: CustomWidget(
-                        lebel: AppService.VAT_FEE,
-                        pathToIamgeIcon: Constants.vatFeeIcon,
+                        label: AppLocalizations.of(context)?.translate("VAT_FEE") ?? "",
+                        pathToImageIcon: Constants.vatFeeIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -140,8 +138,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.NATIONAL_UNIVERSITY_FEES);
                     },
                     child: CustomWidget(
-                        lebel: AppService.NATIONAL_UNIVERSITY_FEES,
-                        pathToIamgeIcon: Constants.nationUniversityFeeIcon,
+                        label: AppLocalizations.of(context)?.translate("NATIONAL_UNIVERSITY_FEES") ?? "",
+                        pathToImageIcon: Constants.nationUniversityFeeIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -149,8 +147,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.BOND_PAYMENT);
                     },
                     child: CustomWidget(
-                        lebel: AppService.BOND_PAYMENT,
-                        pathToIamgeIcon: Constants.bondPaymentIcon,
+                        label: AppLocalizations.of(context)?.translate("BOND_PAYMENT") ?? "",
+                        pathToImageIcon: Constants.bondPaymentIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -158,8 +156,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.E_PASSPORT_FEE);
                     },
                     child: CustomWidget(
-                        lebel: AppService.E_PASSPORT_FEE,
-                        pathToIamgeIcon: Constants.ePassportIcon,
+                        label: AppLocalizations.of(context)?.translate("E_PASSPORT_FEE") ?? "",
+                        pathToImageIcon: Constants.ePassportIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -173,8 +171,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.KAMALAPUR_ICD);
                     },
                     child: CustomWidget(
-                        lebel: AppService.KAMALAPUR_ICD,
-                        pathToIamgeIcon: Constants.kamalapurIcdIcon,
+                        label: AppLocalizations.of(context)?.translate("KAMALAPUR_ICD") ?? "",
+                        pathToImageIcon: Constants.kamalapurIcdIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -182,8 +180,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.POLICE_CLEARANCE);
                     },
                     child: CustomWidget(
-                        lebel: AppService.POLICE_CLEARANCE,
-                        pathToIamgeIcon: Constants.policeClearanceIcon,
+                        label: AppLocalizations.of(context)?.translate("POLICE_CLEARANCE") ?? "",
+                        pathToImageIcon: Constants.policeClearanceIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -191,8 +189,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.BUTEX);
                     },
                     child: CustomWidget(
-                        lebel: AppService.BUTEX,
-                        pathToIamgeIcon: Constants.butexIcon,
+                        label: AppLocalizations.of(context)?.translate("BUTEX") ?? "",
+                        pathToImageIcon: Constants.butexIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -206,8 +204,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.JKKNU);
                     },
                     child: CustomWidget(
-                        lebel: AppService.JKKNU,
-                        pathToIamgeIcon: Constants.jkknuIcon,
+                        label: AppLocalizations.of(context)?.translate("JKKNU") ?? "",
+                        pathToImageIcon: Constants.jkknuIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -215,8 +213,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.HSC_FEES);
                     },
                     child: CustomWidget(
-                        lebel: AppService.HSC_FEES,
-                        pathToIamgeIcon: Constants.hscFeesIcon,
+                        label: AppLocalizations.of(context)?.translate("HSC_FEES") ?? "",
+                        pathToImageIcon: Constants.hscFeesIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -231,8 +229,8 @@ class AllServicesPage extends StatelessWidget {
                       );
                     },
                     child: CustomWidget(
-                        lebel: AppService.SONALI_E_WALLET,
-                        pathToIamgeIcon: Constants.sonaliEWalletIcon,
+                        label: AppLocalizations.of(context)?.translate("SONALI_E_WALLET") ?? "",
+                        pathToImageIcon: Constants.sonaliEWalletIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -246,8 +244,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.SEVEN_COLLEGE_FEES);
                     },
                     child: CustomWidget(
-                        lebel: AppService.SEVEN_COLLEGE_FEES,
-                        pathToIamgeIcon: Constants.sevenCollegeicon,
+                        label: AppLocalizations.of(context)?.translate("SEVEN_COLLEGE_FEES") ?? "",
+                        pathToImageIcon: Constants.sevenCollegeicon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -255,8 +253,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.CUSTOMER_SERVICE_FORM);
                     },
                     child: CustomWidget(
-                        lebel: AppService.CUSTOMER_SERVICE_FORM,
-                        pathToIamgeIcon: Constants.customerServiceFormIcon,
+                        label: AppLocalizations.of(context)?.translate("CUSTOMER_SERVICE_FORM") ?? "",
+                        pathToImageIcon: Constants.customerServiceFormIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -270,8 +268,8 @@ class AllServicesPage extends StatelessWidget {
                       }
                     },
                     child: CustomWidget(
-                        lebel: AppService.SUROKKHA,
-                        pathToIamgeIcon: Constants.surokkhaIcon,
+                        label: AppLocalizations.of(context)?.translate("SUROKKHA") ?? "",
+                        pathToImageIcon: Constants.surokkhaIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],
@@ -285,8 +283,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.SOURCE_TAX_CERT);
                     },
                     child: CustomWidget(
-                        lebel: AppService.SOURCE_TAX_CERT,
-                        pathToIamgeIcon: Constants.sourceTaxCertIcon,
+                        label: AppLocalizations.of(context)?.translate("SOURCE_TAX_CERT") ?? "",
+                        pathToImageIcon: Constants.sourceTaxCertIcon,
                         id: ServiceId.ACCCOUNT_OPPENING),
                   ),
                   GestureDetector(
@@ -294,8 +292,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.DPDC);
                     },
                     child: CustomWidget(
-                        lebel: AppService.DPDC,
-                        pathToIamgeIcon: Constants.dpdcIcon,
+                        label: AppLocalizations.of(context)?.translate("DPDC") ?? "",
+                        pathToImageIcon: Constants.dpdcIcon,
                         id: ServiceId.BUET_FEE),
                   ),
                   GestureDetector(
@@ -303,8 +301,8 @@ class AllServicesPage extends StatelessWidget {
                       context.pushNamed(AppService.BTCL);
                     },
                     child: CustomWidget(
-                        lebel: AppService.BTCL,
-                        pathToIamgeIcon: Constants.btclIcon,
+                        label: AppLocalizations.of(context)?.translate("BTCL") ?? "",
+                        pathToImageIcon: Constants.btclIcon,
                         id: ServiceId.XI_ADMISSION),
                   ),
                 ],

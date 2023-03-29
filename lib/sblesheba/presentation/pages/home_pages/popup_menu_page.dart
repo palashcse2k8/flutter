@@ -54,7 +54,7 @@ PopupMenuEntry buildPopUpItem(BuildContext context,
             style: const TextStyle(
               fontSize: 15,
             ),
-            maxLines: 1,
+            // maxLines: 1,
           ),
         ),
         trailing: Radio(
