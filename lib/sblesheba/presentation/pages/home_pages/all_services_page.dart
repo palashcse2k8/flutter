@@ -13,6 +13,7 @@ class AllServicesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
       child: Container(
         // color: Colors.cyan,
         // color: const Color(0xff0083a7),

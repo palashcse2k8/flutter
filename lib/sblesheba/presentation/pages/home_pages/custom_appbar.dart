@@ -10,6 +10,21 @@ class CustomAppBar extends StatelessWidget implements PreferredSize{
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      // elevation: 0,
+      flexibleSpace: Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                colors: [
+                  Colors.orange,
+                  Colors.amber,
+                ],
+                stops: [0.0, 1.0],
+                begin: FractionalOffset.topCenter,
+                end: FractionalOffset.bottomCenter,
+                tileMode: TileMode.repeated
+            )
+        ),
+      ),
       title: Text(AppLocalizations.of(context)?.translate('title')?? ""),
       backgroundColor: const Color(0xffFF9A00),
       // backgroundColor: const Color.fromARGB(255,154,0,255),

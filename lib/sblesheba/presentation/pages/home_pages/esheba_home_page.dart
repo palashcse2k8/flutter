@@ -10,10 +10,12 @@ class EshebaHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        appBar: CustomAppBar(),
-        drawer: CustomerDrawer(),
-        body: AllServicesPage(),
-        floatingActionButton: CustomFloatingActionButton());
+    return const SafeArea(
+      child: Scaffold(
+          appBar: CustomAppBar(),
+          drawer: CustomerDrawer(),
+          body: AllServicesPage(),
+          floatingActionButton: CustomFloatingActionButton()),
+    );
   }
 }

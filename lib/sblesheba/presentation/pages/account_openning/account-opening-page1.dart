@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbascis/sblesheba/pdf-generator/pdfpreview.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/custom_appbar.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/drawer_menu_page.dart';
 
@@ -15,10 +16,12 @@ class AccountOpeningPage1 extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomButton( text: "Savings Account",  func: (){
-              debugPrint("Savings Clicked");
+              // debugPrint("Savings Clicked");
+              // Customer _userInformation = Customer(customer: "Mosiur Rahman", address: address, items: items)
               Navigator.of(context).push(
+                
                   MaterialPageRoute(
-                      builder: (context) => const AccountOpeningPage1(),
+                      builder: (context) => const PdfPreviewPage(),
                   )
               );
             },),
