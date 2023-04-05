@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutterbascis/sblesheba/pdf-generator/pdfpreview.dart';
+import 'package:flutterbascis/sblesheba/pdf-generator/pdf-preview-flutter.dart';
+import 'package:flutterbascis/sblesheba/pdf-generator/pdf-preview.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/custom_appbar.dart';
 import 'package:flutterbascis/sblesheba/presentation/pages/home_pages/drawer_menu_page.dart';
 
@@ -22,6 +23,7 @@ class AccountOpeningPage1 extends StatelessWidget {
                 
                   MaterialPageRoute(
                       builder: (context) => const PdfPreviewPage(),
+                      // builder: (context) => FlutterPDFView(),
                   )
               );
             },),
