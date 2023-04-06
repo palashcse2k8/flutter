@@ -1,13 +1,8 @@
-import 'dart:io';
-
 import 'package:flutter/services.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart';
-import 'package:printing/printing.dart';
 
-import 'image-converter.dart';
-import 'model.dart';
+import '../datamodel/model.dart';
 
 Future<Document> generatePdf() async {
   final imageLogo = MemoryImage(
@@ -16,13 +11,13 @@ Future<Document> generatePdf() async {
           .asUint8List());
 
   final imageCustomer = MemoryImage(
-      (await rootBundle.load(Customer.imageLocation)).buffer.asUint8List());
+      (await rootBundle.load(Customer.customerImage)).buffer.asUint8List());
 
-  final font = await PdfGoogleFonts.aleoLightItalic();
+  // final font = await PdfGoogleFonts.aleoLightItalic();
   final pdf = Document();
-  const pageTheme = PageTheme(
-    pageFormat: PdfPageFormat.a4,
-  );
+  // const pageTheme = PageTheme(
+  //   pageFormat: PdfPageFormat.a4,
+  // );
   pdf.addPage(
     Page(
         pageFormat: PdfPageFormat.a4,
@@ -50,18 +45,16 @@ Future<Document> generatePdf() async {
                   alignment: Alignment.center,
                   // width: 100,
                   // height: 120,
-                  child: Column(
-                    children: [
-                      Text("Customer Photo"),
-                      SizedBox(height: 10),
-                      Image(
+                  child: Column(children: [
+                    Text("Customer Photo"),
+                    SizedBox(height: 10),
+                    Image(
                         height: 120,
-                          width: 100,
-                          MemoryImage(imageCustomer.bytes)),
+                        width: 100,
+                        MemoryImage(imageCustomer.bytes)),
 
-                      // getImageBase64(Customer.imageBase64),
-                    ]
-                  ),
+                    // getImageBase64(Customer.imageBase64),
+                  ]),
                 ),
                 SizedBox(
                   width: 50,
@@ -70,17 +63,15 @@ Future<Document> generatePdf() async {
                   alignment: Alignment.center,
                   // width: 100,
                   // height: 120,
-                  child: Column(
-                      children: [
-                        Text("Nominee Photo"),
-                        SizedBox(height: 10),
-                        Image(
-                            height: 120,
-                            width: 100,
-                            MemoryImage(imageCustomer.bytes)),
-                        // getImageBase64(Customer.imageBase64),
-                      ]
-                  ),
+                  child: Column(children: [
+                    Text("Nominee Photo"),
+                    SizedBox(height: 10),
+                    Image(
+                        height: 120,
+                        width: 100,
+                        MemoryImage(imageCustomer.bytes)),
+                    // getImageBase64(Customer.imageBase64),
+                  ]),
                 ),
               ],
             ),
@@ -88,17 +79,20 @@ Future<Document> generatePdf() async {
               height: 10,
             ),
             Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text('Name of the branch: ${Customer.nameOfBranch}',
-                  style: TextStyle(
-                      // font: font,
-                      fontSize: 15, fontWeight: FontWeight.normal)),
-              SizedBox(width: 10),
-              Text('Account Number: ${Customer.accountNumber}',
-                  style: TextStyle(
-                      // font: font,
-                      fontSize: 15, fontWeight: FontWeight.normal)),
-            ]),
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Name of the branch: ${Customer.nameOfBranch}',
+                      style: TextStyle(
+                          // font: font,
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal)),
+                  SizedBox(width: 10),
+                  Text('Account Number: ${Customer.accountNumber}',
+                      style: TextStyle(
+                          // font: font,
+                          fontSize: 15,
+                          fontWeight: FontWeight.normal)),
+                ]),
             SizedBox(
               height: 10,
             ),
@@ -185,26 +179,22 @@ SizedBox tableRowDivider(double height) {
   );
 }
 
-TableRow addTableRow (String option, String value) {
-  return TableRow(
-      children: [
-        Container(
-          height: 20,
-          child: Row(
-            children: [
-            Text(option,
-                textAlign: TextAlign.left,
-                style: TextStyle(fontWeight: FontWeight.normal)),
-            ]
-          )
-        ),
-        Container(
-          height: 20,
-          child: Text(': $value',
+TableRow addTableRow(String option, String value) {
+  return TableRow(children: [
+    Container(
+        height: 20,
+        child: Row(children: [
+          Text(option,
               textAlign: TextAlign.left,
               style: TextStyle(fontWeight: FontWeight.normal)),
-        ),
-      ]);
+        ])),
+    Container(
+      height: 20,
+      child: Text(': $value',
+          textAlign: TextAlign.left,
+          style: TextStyle(fontWeight: FontWeight.normal)),
+    ),
+  ]);
 }
 
 // TableRow addTableRow(String option, String value) {

@@ -1,23 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:printing/printing.dart';
 
-import 'model.dart';
+import '../datamodel/model.dart';
 
 class AccountInformation extends StatelessWidget {
   AccountInformation({Key? key}) : super(key: key);
 
-  // late final imageLogo;
-  //
-  // createLogo() async {
-  //   imageLogo = MemoryImage(
-  //       (await rootBundle.load(Customer.imageLocation)).buffer.asUint8List());
-  // }
-
   @override
   Widget build(BuildContext context) {
-    final font = PdfGoogleFonts.nunitoExtraLight();
+    // final font = PdfGoogleFonts.nunitoExtraLight();
     return SafeArea(
       child: Container(
         color: Colors.white,
@@ -31,7 +22,7 @@ class AccountInformation extends StatelessWidget {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                     fit: BoxFit.scaleDown,
-                    image: AssetImage(Customer.imageLocation)),
+                    image: AssetImage(Customer.customerImage)),
               ),
             ),
           ),
@@ -63,23 +54,27 @@ class AccountInformation extends StatelessWidget {
             Text(
               "Name of the branch: ${Customer.nameOfBranch}",
               style: GoogleFonts.lato(
-                textStyle: Theme.of(context).textTheme.headline4,
+                textStyle: Theme.of(context).textTheme.headlineMedium,
                 fontSize: 10,
                 fontWeight: FontWeight.w900,
                 fontStyle: FontStyle.normal,
               ),
             ),
-            const SizedBox(width: 5,),
+            const SizedBox(
+              width: 5,
+            ),
             Text(
               "Account Number: ${Customer.accountNumber}",
               style: GoogleFonts.lato(
-                textStyle: Theme.of(context).textTheme.headline4,
+                textStyle: Theme.of(context).textTheme.headlineMedium,
                 fontSize: 10,
                 fontWeight: FontWeight.w700,
                 fontStyle: FontStyle.italic,
               ),
             ),
-            const SizedBox(height: 5,),
+            const SizedBox(
+              height: 5,
+            ),
             Container(
               width: double.infinity,
               // height: 100,
@@ -88,8 +83,12 @@ class AccountInformation extends StatelessWidget {
                 border: TableBorder.all(),
                 children: const [
                   TableRow(children: [
-                    Text('Sport', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
-                    Text('Total Players', textAlign: TextAlign.center, style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text('Sport',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    Text('Total Players',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                   ]),
                   TableRow(children: [
                     Text('Soccer', textAlign: TextAlign.center),
