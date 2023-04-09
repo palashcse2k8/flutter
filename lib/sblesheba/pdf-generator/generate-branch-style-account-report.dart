@@ -13,12 +13,23 @@ String openingTime = DateFormat.jm().format(dateTime);
 String openingDay = DateFormat('EEEE').format(dateTime);
 double width = 0;
 double defaultFontSize = 10;
+double defaultHeaderFontSize = 14;
+double paddingSize = 2;
 
-var ttf;
+var customFont;
+var customFontBold;
+
+Future getFont() async {
+  // customFont = await PdfGoogleFonts.abhayaLibreRegular();
+  customFont =
+      Font.ttf(await rootBundle.load("assets/fonts/OpenSans-Regular.ttf"));
+  customFontBold =
+      Font.ttf(await rootBundle.load("assets/fonts/OpenSans-Bold.ttf"));
+}
 
 Future<Document> generateAccountInformationPdf() async {
-  final font = await rootBundle.load("assets/fonts/OpenSans-Regular.ttf");
-  ttf = Font.ttf(font);
+  await getFont();
+
   // var base64String = base64Decode("sd");
   // final base64Image = MemoryImage(base64String);
 
@@ -53,7 +64,7 @@ Future<Document> generateAccountInformationPdf() async {
               getHeaderArea(imageLogo),
               getBranchInformation(),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                getAccountInformation(),
+                Expanded(child: getAccountInformation()),
                 getCustomerNomineePhoto(imageCustomer, imageNominee),
               ]),
               // SizedBox(height: 10),
@@ -62,7 +73,7 @@ Future<Document> generateAccountInformationPdf() async {
               getContactDetails(),
               SizedBox(height: 8),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                getOtherDetails(),
+                Expanded(child: getOtherDetails()),
                 SizedBox(width: 10),
                 getNidPhoto(imageNidFront, imageNidBack),
               ]),
@@ -97,24 +108,24 @@ Widget getNidPhoto(MemoryImage imageNidFront, MemoryImage imageNidBack) {
       getPhotoArea("Nid Front Side", imageNidFront, 120, 120),
       SizedBox(width: 10),
       getPhotoArea("Nid Back Side", null, 120, 120),
-      SizedBox(width: 10)
     ]),
   ]));
 }
 
 Widget getSignature(MemoryImage imageCustomer) {
-  return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child:
-              Text("Specimen Signature/Digital Signature (Where necessary) :"),
-        ),
-        SizedBox(height: 5),
-        getPhotoArea("", imageCustomer, 60, 200),
-      ]);
+  return Align(
+      alignment: Alignment.topLeft,
+      child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            getCustomText(
+                "Specimen Signature/Digital Signature (Where necessary) :",
+                defaultFontSize,
+                TextAlign.left),
+            SizedBox(height: 5),
+            getPhotoArea("", imageCustomer, 60, 200),
+          ]));
 }
 
 Widget getLowerPart() {
@@ -126,17 +137,20 @@ Widget getLowerPart() {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              getCustomText(
-                  "1. Has UNSCR's check done? (Yes) (No)", defaultFontSize),
+              getCustomText("1. Has UNSCR's check done? (Yes) (No)",
+                  defaultFontSize, TextAlign.left),
               getCustomText(
                   "2. Has review of customer profile done (Existing customer)? If so, date of review ..............",
-                  defaultFontSize),
+                  defaultFontSize,
+                  TextAlign.left),
               getCustomText(
                   "3. What is the average range of customer transaction (Over 6/12 months)? .........",
-                  defaultFontSize),
+                  defaultFontSize,
+                  TextAlign.left),
               getCustomText(
                   "4. Any other relevant field may be add here .....................................",
-                  defaultFontSize)
+                  defaultFontSize,
+                  TextAlign.left)
             ]),
       ),
     ]),
@@ -147,10 +161,7 @@ Widget getNomineeDetails() {
   return Container(
     alignment: Alignment.topLeft,
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        "Nominee Details:",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-      ),
+      getCustomBoldText("Nominee Details:", defaultHeaderFontSize),
       SizedBox(height: 5),
       Table(border: TableBorder.all(width: 1), columnWidths: {
         0: const FixedColumnWidth(50),
@@ -164,24 +175,24 @@ Widget getNomineeDetails() {
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: PdfColors.black)),
           children: [
-            getCustomBoldText("Sl.", defaultFontSize),
-            getCustomBoldText("Nominee Name", defaultFontSize),
-            getCustomBoldText("Share (%)", defaultFontSize),
-            getCustomBoldText("Date Of Birth", defaultFontSize),
-            getCustomBoldText("NID/BRC", defaultFontSize),
-            getCustomBoldText("Relation", defaultFontSize),
+            getPaddedText("Sl.", defaultFontSize),
+            getPaddedText("Nominee Name", defaultFontSize),
+            getPaddedText("Share (%)", defaultFontSize),
+            getPaddedText("Date Of Birth", defaultFontSize),
+            getPaddedText("NID/BRC", defaultFontSize),
+            getPaddedText("Relation", defaultFontSize),
           ],
         ),
         TableRow(
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: PdfColors.black)),
           children: [
-            getCustomText("1.", defaultFontSize),
-            getCustomText(Customer.nomineeName, defaultFontSize),
-            getCustomText(Customer.nomineeShare, defaultFontSize),
-            getCustomText(Customer.nomineeDateofBirth, defaultFontSize),
-            getCustomText(Customer.nomineeNidBRC, defaultFontSize),
-            getCustomText(Customer.nomineeRelation, defaultFontSize),
+            getPaddedText("1.", defaultFontSize),
+            getPaddedText(Customer.nomineeName, defaultFontSize),
+            getPaddedText(Customer.nomineeShare, defaultFontSize),
+            getPaddedText(Customer.nomineeDateofBirth, defaultFontSize),
+            getPaddedText(Customer.nomineeNidBRC, defaultFontSize),
+            getPaddedText(Customer.nomineeRelation, defaultFontSize),
           ],
         )
       ])
@@ -193,8 +204,7 @@ Widget getOtherDetails() {
   return Container(
     alignment: Alignment.topLeft,
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text("Other Details:",
-          style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+      getCustomBoldText("Other Details:", defaultHeaderFontSize),
       SizedBox(height: 5),
       Table(
           tableWidth: TableWidth.min,
@@ -211,33 +221,39 @@ Widget getOtherDetails() {
                 "4. Gender (M/F/T)", Customer.gender, defaultFontSize),
             addAccountInfoTableRow(
                 "5. Profession", Customer.profession, defaultFontSize),
-            addAccountInfoTableRow("6. Spouse Name (If applicable)",
+            addAccountInfoTableRow("6. Spouse Name (If Any)",
                 Customer.spouseName, defaultFontSize),
           ])
     ]),
   );
 }
 
-Widget getCustomBoldText(String text, double defaultFontSize) {
+Widget getPaddedText(String text, double defaultFontSize) {
   return Padding(
-    padding: const EdgeInsets.all(5),
-    child: Text(
-      text,
-      textAlign: TextAlign.center,
-      style: TextStyle(fontWeight: FontWeight.bold, fontSize: defaultFontSize),
-    ),
+      padding: const EdgeInsets.all(4),
+      child: getCustomText(text, defaultFontSize, TextAlign.center));
+}
+
+Widget getCustomBoldText(String text, double defaultFontSize) {
+  return Text(
+    text,
+    textAlign: TextAlign.left,
+    style: TextStyle(
+        font: customFontBold,
+        fontWeight: FontWeight.bold,
+        fontSize: defaultFontSize),
   );
 }
 
-Widget getCustomText(String text, double defaultFontSize) {
-  return Padding(
-    padding: const EdgeInsets.all(4),
-    child: Text(
-      text,
-      textAlign: TextAlign.center,
-      style:
-          TextStyle(fontWeight: FontWeight.normal, fontSize: defaultFontSize),
-    ),
+Widget getCustomText(
+    String text, double defaultFontSize, TextAlign? textAlign) {
+  return Text(
+    text,
+    textAlign: (textAlign != null) ? textAlign : TextAlign.left,
+    style: TextStyle(
+        fontWeight: FontWeight.normal,
+        fontSize: defaultFontSize,
+        font: customFont),
   );
 }
 
@@ -245,10 +261,7 @@ Widget getPersonalDetails() {
   return Container(
     alignment: Alignment.topLeft,
     child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        "Personal Details:",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-      ),
+      getCustomBoldText("Personal Details:", defaultHeaderFontSize),
       SizedBox(height: 5),
       Table(border: TableBorder.all(width: 1), columnWidths: {
         0: const FixedColumnWidth(50),
@@ -261,20 +274,20 @@ Widget getPersonalDetails() {
               border: Border.all(
                   width: 1, color: PdfColors.black, style: BorderStyle.none)),
           children: [
-            getCustomBoldText("Client No.", defaultFontSize),
-            getCustomBoldText("Name", defaultFontSize),
-            getCustomBoldText("Father's Name", defaultFontSize),
-            getCustomBoldText("Mother's Name", defaultFontSize),
+            getPaddedText("Client No.", defaultFontSize),
+            getPaddedText("Name", defaultFontSize),
+            getPaddedText("Father's Name", defaultFontSize),
+            getPaddedText("Mother's Name", defaultFontSize),
           ],
         ),
         TableRow(
           decoration: BoxDecoration(
               border: Border.all(width: 1, color: PdfColors.black)),
           children: [
-            getCustomText("12345", defaultFontSize),
-            getCustomText(Customer.name.toUpperCase(), defaultFontSize),
-            getCustomText(Customer.fathersName.toUpperCase(), defaultFontSize),
-            getCustomText(Customer.mothersName.toUpperCase(), defaultFontSize),
+            getPaddedText("12345", defaultFontSize),
+            getPaddedText(Customer.name.toUpperCase(), defaultFontSize),
+            getPaddedText(Customer.fathersName.toUpperCase(), defaultFontSize),
+            getPaddedText(Customer.mothersName.toUpperCase(), defaultFontSize),
           ],
         )
       ])
@@ -285,58 +298,59 @@ Widget getPersonalDetails() {
 Widget getContactDetails() {
   return Container(
     alignment: Alignment.topLeft,
-    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Text(
-        "Contact Details:",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-      ),
-      SizedBox(height: 5),
-      Table(border: TableBorder.all(width: 1), columnWidths: {
-        0: const FixedColumnWidth(100),
-        1: const FixedColumnWidth(100),
-        2: const FixedColumnWidth(80),
-        3: const FixedColumnWidth(120),
-      }, children: [
-        TableRow(
-          decoration: BoxDecoration(
-              border: Border.all(width: 1, color: PdfColors.black)),
-          children: [
-            getCustomBoldText("Present Address", defaultFontSize),
-            getCustomBoldText("Permanent Address", defaultFontSize),
-            getCustomBoldText("Mobile", defaultFontSize),
-            getCustomBoldText("Email", defaultFontSize),
-          ],
-        ),
-        TableRow(
-          decoration: BoxDecoration(
-              border: Border.all(width: 1, color: PdfColors.black)),
-          children: [
-            getCustomText(Customer.presentAddress, defaultFontSize),
-            getCustomText(Customer.permanentAddress, defaultFontSize),
-            getCustomText(Customer.mobileNumber, defaultFontSize),
-            getCustomText(Customer.email, defaultFontSize),
-          ],
-        )
-      ])
-    ]),
+    child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          getCustomBoldText("Contact Details:", defaultHeaderFontSize),
+          SizedBox(height: 5),
+          Table(border: TableBorder.all(width: 1), columnWidths: {
+            0: const FixedColumnWidth(100),
+            1: const FixedColumnWidth(100),
+            2: const FixedColumnWidth(80),
+            3: const FixedColumnWidth(120),
+          }, children: [
+            TableRow(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: PdfColors.black)),
+              children: [
+                getPaddedText("Present Address", defaultFontSize),
+                getPaddedText("Permanent Address", defaultFontSize),
+                getPaddedText("Mobile", defaultFontSize),
+                getPaddedText("Email", defaultFontSize),
+              ],
+            ),
+            TableRow(
+              decoration: BoxDecoration(
+                  border: Border.all(width: 1, color: PdfColors.black)),
+              children: [
+                getPaddedText(Customer.presentAddress, defaultFontSize),
+                getPaddedText(Customer.permanentAddress, defaultFontSize),
+                getPaddedText(Customer.mobileNumber, defaultFontSize),
+                getPaddedText(Customer.email, defaultFontSize),
+              ],
+            )
+          ])
+        ]),
   );
 }
 
 Widget getPhotoArea(
     String photoTitle, MemoryImage? image, double height, double width) {
   return Column(children: [
-    Text(photoTitle, style: const TextStyle(fontSize: 10)),
+    getCustomText(photoTitle, defaultFontSize, TextAlign.left),
     Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-          border: Border.all(
-              width: 1, color: PdfColors.black, style: BorderStyle.solid)),
-      child: (image != null) ? Image(MemoryImage(image.bytes), fit: BoxFit.cover) : Center(
-        child: Text(
-        "No Photo"
-      )),
-    ),
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+            border: Border.all(
+                width: 1, color: PdfColors.black, style: BorderStyle.solid)),
+        child: (image != null)
+            ? Image(MemoryImage(image.bytes), fit: BoxFit.cover)
+            : Center(
+                child:
+                    getCustomText("No Photo", defaultFontSize, TextAlign.left),
+              )),
   ]);
 }
 
@@ -345,8 +359,7 @@ Widget getAccountInformation() {
       alignment: Alignment.topLeft,
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text("Account Information:",
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+          getCustomBoldText("Account Information:", 14),
           SizedBox(height: 6),
           Table(
               tableWidth: TableWidth.min,
@@ -368,35 +381,23 @@ Widget getAccountInformation() {
 }
 
 TableRow addAccountInfoTableRow(
-    String option, String value, double defaultfontSize) {
+    String option, String value, double defaultFontSize) {
   return TableRow(children: [
     Container(
-      height: 20,
-      child: Text(option,
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontWeight: FontWeight.normal,
-            fontSize: defaultfontSize,
-          )),
+      height: 15,
+      child: getCustomText(option, defaultFontSize, TextAlign.left),
     ),
     Container(
-      height: 20,
-      child: Text(': $value',
-          textAlign: TextAlign.left,
-          style: TextStyle(
-            fontWeight: FontWeight.normal,
-            fontSize: defaultfontSize,
-          )),
+      height: 15,
+      child: getCustomText(' : $value', defaultFontSize, TextAlign.left),
     ),
   ]);
 }
 
 Widget getBranchInformation() {
   return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-    Text("Sonali Bank Limited",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
-    Text("Branch Name",
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.normal))
+    getCustomBoldText("Sonali Bank Limited", 14),
+    getCustomText("Branch Name", 14, TextAlign.left)
   ]);
 }
 
@@ -408,32 +409,22 @@ Row getHeaderArea(MemoryImage imageLogo) {
         children: [
           Image(height: 60, width: 100, MemoryImage(imageLogo.bytes)),
           SizedBox(height: 5),
-          Text("Generated By",
-              style: const TextStyle(
-                fontSize: 8,
-              )),
-          Text("Information Technology Division",
-              style: const TextStyle(fontSize: 10)),
-          // Text(
-          //   "Head Office",
-          //     style: const TextStyle(fontSize: 10)
-          // ),
+          getCustomText("Generated By", 8, TextAlign.left),
+          getCustomText("Information Technology Division", 10, TextAlign.left)
         ]),
     Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "Opening Date : $openingDate",
-          ),
-          Text(
-            "Time : $openingTime , $openingDay",
-          ),
+          getCustomText(
+              "Opening Date : $openingDate", defaultFontSize, TextAlign.left),
+          getCustomText("Time : $openingTime , $openingDay", defaultFontSize,
+              TextAlign.left)
         ]),
   ]);
 }
 
-SizedBox RowDivider(double height) {
+SizedBox rowDivider(double height) {
   return SizedBox(
     height: height,
   );

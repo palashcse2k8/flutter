@@ -69,4 +69,8 @@ flutter:
     - assets/pdf/
     - i18n/
     - assets/images/
-    - assets/fonts/
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans-Bold.ttf
+        - asset: assets/fonts/OpenSans-Regular.ttf
