@@ -96,7 +96,7 @@ Widget getNidPhoto(MemoryImage imageNidFront, MemoryImage imageNidBack) {
     Row(children: [
       getPhotoArea("Nid Front Side", imageNidFront, 120, 120),
       SizedBox(width: 10),
-      getPhotoArea("Nid Back Side", imageNidBack, 120, 120),
+      getPhotoArea("Nid Back Side", null, 120, 120),
       SizedBox(width: 10)
     ]),
   ]));
@@ -323,7 +323,7 @@ Widget getContactDetails() {
 }
 
 Widget getPhotoArea(
-    String photoTitle, MemoryImage image, double height, double width) {
+    String photoTitle, MemoryImage? image, double height, double width) {
   return Column(children: [
     Text(photoTitle, style: const TextStyle(fontSize: 10)),
     Container(
@@ -332,7 +332,10 @@ Widget getPhotoArea(
       decoration: BoxDecoration(
           border: Border.all(
               width: 1, color: PdfColors.black, style: BorderStyle.solid)),
-      child: Image(MemoryImage(image.bytes), fit: BoxFit.cover),
+      child: (image != null) ? Image(MemoryImage(image.bytes), fit: BoxFit.cover) : Center(
+        child: Text(
+        "No Photo"
+      )),
     ),
   ]);
 }
