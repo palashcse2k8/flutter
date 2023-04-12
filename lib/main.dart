@@ -6,6 +6,10 @@ import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:flutterbascis/sblesheba/utilities/app_language.dart';
 import 'package:provider/provider.dart';
 
+import 'learning/basictraining.dart';
+import 'learning/constraints.dart';
+import 'learning/form.dart';
+
 void main() async {
   WidgetsFlutterBinding
       .ensureInitialized(); // to ensure all the initialization before loading the app
@@ -16,7 +20,7 @@ void main() async {
   ));
   // runApp(const MaterialApp(
   //     debugShowCheckedModeBanner: false,
-  //     home: MyLearningHomePage(title: 'Flutter Learning',)));
+  //     home: ConstrainsLearning()));
 }
 
 class MyApp extends StatelessWidget {

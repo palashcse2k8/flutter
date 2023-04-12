@@ -21,14 +21,14 @@ Future<File> saveDocument({
 }) async {
   final bytes = await pdf.save();
 
-  final dir = await getApplicationDocumentsDirectory();
-  final file = File('${dir.path}/$name');
+  // final dir = await getApplicationDocumentsDirectory();
+  // final file = File('${dir.path}/$name');
 
   // final dir = await getDownloadsDirectory();
   // final dir = await getDirectory();
 
-  // final dir = await getDirectory();
-  // final file = File('${dir}/$name');
+  final dir = await getDirectory();
+  final file = File('$dir/$name');
 
   await file.writeAsBytes(bytes);
 
@@ -38,15 +38,19 @@ Future<File> saveDocument({
 Future<String?> getDirectory() async {
   String? downloadDirectory;
   if (Platform.isAndroid) {
-    final externalStorageFolder = await getExternalStorageDirectory();
-    if (externalStorageFolder != null) {
-      downloadDirectory = p.join(externalStorageFolder.path, "Downloads");
-    }
+    // final externalStorageFolder = await getExternalStorageDirectory();
+    const downloadDirectory = "/storage/emulated/0/Download/";
+    return downloadDirectory;
+    // print(externalStorageFolder);
+    // if (externalStorageFolder != null) {
+    //   downloadDirectory = p.join(externalStorageFolder.path, "Downloads");
+    // }
   } else {
     final downloadFolder = await getDownloadsDirectory();
     if (downloadFolder != null) {
       downloadDirectory = downloadFolder.path;
     }
+    return downloadDirectory.toString();
   }
-  return downloadDirectory.toString();
+
 }
