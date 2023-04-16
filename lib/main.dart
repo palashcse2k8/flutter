@@ -6,6 +6,7 @@ import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:flutterbascis/sblesheba/utilities/app_language.dart';
 import 'package:provider/provider.dart';
 
+import 'firebasebasics/firebaselogin.dart';
 import 'learning/basictraining.dart';
 import 'learning/constraints.dart';
 import 'learning/form.dart';
@@ -15,12 +16,12 @@ void main() async {
       .ensureInitialized(); // to ensure all the initialization before loading the app
   AppLanguageProvider appLanguage = AppLanguageProvider();
   await appLanguage.fetchLocale(); // to get the last local used for this app
-  runApp(MyApp(
-    appLanguage: appLanguage,
-  ));
-  // runApp(const MaterialApp(
-  //     debugShowCheckedModeBanner: false,
-  //     home: ConstrainsLearning()));
+  // runApp(MyApp(
+  //   appLanguage: appLanguage,
+  // ));
+  runApp(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FireBaseLogin()));
 }
 
 class MyApp extends StatelessWidget {
