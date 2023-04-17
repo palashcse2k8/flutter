@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/firebasebasics/utils/themes/theme.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 import 'features/authentication/screens/splash_screen/splash_screen.dart';
 
@@ -8,8 +9,8 @@ class FireBaseLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: const SplashScreen(),
+    return GetMaterialApp(
+      home: SplashScreen(),
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.light,
