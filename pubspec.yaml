@@ -37,6 +37,8 @@ dependencies:
   google_fonts: ^4.0.3
   get_it: ^7.2.0
   get: ^4.6.5
+  liquid_swipe: any
+  smooth_page_indicator: ^1.1.0
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +73,9 @@ flutter:
     - assets/pdf/
     - i18n/
     - assets/images/
+    - assets/images/on-boarding-images/
+    - assets/images/splash_images/
+
   fonts:
     - family: OpenSans
       fonts:
