@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../screens/on_boarding_screen/on_boarding_screen.dart';
+import '../screens/welcome_screen/welcome_screen.dart';
 
 class SplashScreenController extends GetxController {
 
@@ -12,6 +13,6 @@ class SplashScreenController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 500));
     animate.value = true;
     await Future.delayed(const Duration(milliseconds: 5000));
-    Get.to( () => OnBoardingScreen());
+    Get.to( () => const WelcomeScreen());
   }
 }

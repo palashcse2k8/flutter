@@ -1,5 +1,4 @@
 
-
 const String appName = "./appable";
 const String appTagLine = "Learn To Code.  \nFree For Everyone";
 
@@ -13,3 +12,9 @@ const String appOnBoardingSubTitle3 = "Save time by just copy pasting complete a
 const String appOnBoardingCounter1 = "1/3";
 const String appOnBoardingCounter2 = "2/3";
 const String appOnBoardingCounter3 = "3/3";
+
+// --- welcome screen text
+const String appWelcomeTitle = "Build Awesome Apps";
+const String appWelcomeSubTitle = "Lets put your creativity on the development highway.";
+const String appLogin = "Login";
+const String appSignUp = "SignUp";
