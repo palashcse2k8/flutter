@@ -76,6 +76,7 @@ flutter:
     - assets/images/on-boarding-images/
     - assets/images/splash_images/
     - assets/images/welcome_screen_images/
+    - assets/logo/
 
   fonts:
     - family: OpenSans

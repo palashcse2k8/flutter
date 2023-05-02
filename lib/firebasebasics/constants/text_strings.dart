@@ -18,3 +18,20 @@ const String appWelcomeTitle = "Build Awesome Apps";
 const String appWelcomeSubTitle = "Lets put your creativity on the development highway.";
 const String appLogin = "Login";
 const String appSignUp = "SignUp";
+
+// --- Login Screen ---
+const String appLoginTitle = "Welcome Back,";
+const String appLoginSubTitle = "Make it work, make it right, make it fast.";
+const String appRememberMe = "Remember Me?";
+const String appEmail = "Email";
+const String appPassword = "Password";
+const String appForgetPassword = "Forget Password?";
+const String appSignInWithGoogle = "Sign-In With Google";
+const String appDontHaveAnAccount = "Don't have an Account? ";
+
+// --- Sing Up Screen Text ---
+const String appSignUpTitle = "Get on board!";
+const String appSignUpSubTitle = "Create your profile to your journey with us...";
+const String appAlreadyHaveAnAccount = "Already Have an account? ";
+const String appFullName = "Full Name";
+const String appPhoneNo = "Phone Number";

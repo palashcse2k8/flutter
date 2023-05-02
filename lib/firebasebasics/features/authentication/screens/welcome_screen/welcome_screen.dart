@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutterbascis/firebasebasics/constants/colors.dart';
 import 'package:flutterbascis/firebasebasics/constants/sizes.dart';
 import 'package:flutterbascis/firebasebasics/constants/text_strings.dart';
-
+import 'package:flutterbascis/firebasebasics/features/authentication/screens/login/login_screen.dart';
+import 'package:flutterbascis/firebasebasics/features/authentication/screens/signup/signup_screen.dart';
 import '../../../../constants/image_strings.dart';
+import 'package:get/get.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -40,12 +42,16 @@ class WelcomeScreen extends StatelessWidget {
                 children: [
                   Expanded(
                     child: OutlinedButton(
-                        onPressed: () {}, child: Text(appLogin.toUpperCase())),
+                        onPressed: () {
+                          Get.to(() => const LoginScreen());
+                        }, child: Text(appLogin.toUpperCase())),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => const SignUpScreen());
+                      },
                       child: Text(appSignUp.toUpperCase()),
                     ),
                   )
