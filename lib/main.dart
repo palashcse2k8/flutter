@@ -7,9 +7,6 @@ import 'package:flutterbascis/sblesheba/utilities/app_language.dart';
 import 'package:provider/provider.dart';
 
 import 'firebasebasics/firebaselogin.dart';
-import 'learning/basictraining.dart';
-import 'learning/constraints.dart';
-import 'learning/form.dart';
 
 void main() async {
   WidgetsFlutterBinding
@@ -19,9 +16,9 @@ void main() async {
   // runApp(MyApp(
   //   appLanguage: appLanguage,
   // ));
-  runApp(const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FireBaseLogin()));
+  runApp(
+    const FireBaseLogin(),
+  );
 }
 
 class MyApp extends StatelessWidget {

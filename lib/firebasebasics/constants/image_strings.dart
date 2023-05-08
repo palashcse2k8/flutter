@@ -12,3 +12,6 @@ const String appWelcomeScreenImage = "assets/images/welcome_screen_images/welcom
 
 // --- Login Screen ---
 const String appGoogleLogo = "assets/logo/google_logo.png";
+
+// --- Forget Password ---
+const String appForgetPasswordImage = "assets/images/forget_password/forget-password.jpg";

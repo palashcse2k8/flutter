@@ -39,6 +39,7 @@ dependencies:
   get: ^4.6.5
   liquid_swipe: any
   smooth_page_indicator: ^1.1.0
+  flutter_otp_text_field: ^1.1.1
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +78,7 @@ flutter:
     - assets/images/splash_images/
     - assets/images/welcome_screen_images/
     - assets/logo/
+    - assets/images/forget_password/
 
   fonts:
     - family: OpenSans

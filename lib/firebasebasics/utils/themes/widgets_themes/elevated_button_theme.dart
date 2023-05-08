@@ -12,7 +12,9 @@ class AppElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       foregroundColor: appWhiteColor,
       backgroundColor: appSecondaryColor,
-      shape: const StadiumBorder(),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10)
+      ),
       side: const BorderSide(
         color: appSecondaryColor,
       ),
@@ -26,7 +28,7 @@ class AppElevatedButtonTheme {
     style: ElevatedButton.styleFrom(
       foregroundColor: appSecondaryColor,
       backgroundColor: appWhiteColor,
-      shape: const StadiumBorder(),
+      shape: const RoundedRectangleBorder(),
       side: const BorderSide(
         color: appWhiteColor,
       ),

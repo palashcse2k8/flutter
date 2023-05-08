@@ -26,6 +26,7 @@ const String appRememberMe = "Remember Me?";
 const String appEmail = "Email";
 const String appPassword = "Password";
 const String appForgetPassword = "Forget Password?";
+const String appForgetPasswordTxt = "Forget Password";
 const String appSignInWithGoogle = "Sign-In With Google";
 const String appDontHaveAnAccount = "Don't have an Account? ";
 
@@ -35,3 +36,18 @@ const String appSignUpSubTitle = "Create your profile to your journey with us...
 const String appAlreadyHaveAnAccount = "Already Have an account? ";
 const String appFullName = "Full Name";
 const String appPhoneNo = "Phone Number";
+
+// --- Forget Password ---
+const String appForgetPasswordTitle = "Make Selection!";
+const String appForgetPasswordSubTitle = "Select one of the options given below to reset your password";
+const String appPasswordResetViaEmail = "Reset Via Email verification";
+const String appPasswordResetViaPhone = "Reset Via Phone verification";
+const String appForgetPhoneSubTitle = "Enter your registered phone number to receive OTP";
+const String appForgetMailSubTitle = "Enter your registered email to receive OTP";
+
+// --- OTP Screen ---
+const String appOTPTitleTxt = "CO\nDE";
+const String appOTPSubTitleTxt = "Verification";
+const String appOTPLabelTxt = "Enter the verification code sent at ";
+
+

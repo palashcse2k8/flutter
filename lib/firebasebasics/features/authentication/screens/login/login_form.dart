@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../constants/sizes.dart';
 import '../../../../constants/text_strings.dart';
+import '../forget_password/forget_password_options/forget_password_option_screen.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -13,8 +13,7 @@ class LoginForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Form(
       child: Container(
-        padding: const EdgeInsets.symmetric(
-            vertical: appFormHeight - 10),
+        padding: const EdgeInsets.symmetric(vertical: appFormHeight - 10),
         child: Column(
           children: [
             TextFormField(
@@ -43,12 +42,17 @@ class LoginForm extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.centerRight,
-              child: TextButton(onPressed: () { },
-                  child: const Text(appForgetPassword)),
+              child: TextButton(
+                onPressed: () {
+                  ForgetPasswordScreen.buildShowBottomModalSheet(context);
+                },
+                child: const Text(appForgetPassword),
+              ),
             ),
             SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(onPressed: () {}, child: Text(appLogin.toUpperCase())))
+                child: ElevatedButton(
+                    onPressed: () {}, child: Text(appLogin.toUpperCase())))
           ],
         ),
       ),
