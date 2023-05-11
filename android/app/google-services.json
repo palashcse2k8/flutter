@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "973458232316",
+    "project_id": "fir-test-4ad0b",
+    "storage_bucket": "fir-test-4ad0b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:973458232316:android:a5cb5a74ebe1868f0e1879",
+        "android_client_info": {
+          "package_name": "com.example.flutterbascis"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "973458232316-g1chfu1ldsd76lqfi0s4l5gt814tsbhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBip70LVWoT-C--aliZ74tBWtD85oetsh8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "973458232316-g1chfu1ldsd76lqfi0s4l5gt814tsbhv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbascis/firebasebasics/utils/themes/theme.dart';
 import 'package:get/get.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
-
 import 'features/authentication/screens/splash_screen/splash_screen.dart';
 
 class FireBaseLogin extends StatelessWidget {
@@ -18,6 +16,7 @@ class FireBaseLogin extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.leftToRightWithFade,
       transitionDuration: const Duration(milliseconds: 500),
+
       // showPerformanceOverlay: true,
     );
   }

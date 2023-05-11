@@ -5,12 +5,16 @@ import 'package:flutterbascis/sblesheba/provider/app_language_provider.dart';
 import 'package:flutterbascis/sblesheba/provider/navigation_provider.dart';
 import 'package:flutterbascis/sblesheba/utilities/app_language.dart';
 import 'package:provider/provider.dart';
-
-import 'firebasebasics/firebaselogin.dart';
+import 'firebasebasics/firebase_login.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding
-      .ensureInitialized(); // to ensure all the initialization before loading the app
+      .ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );// to ensure all the initialization before loading the app
   AppLanguageProvider appLanguage = AppLanguageProvider();
   await appLanguage.fetchLocale(); // to get the last local used for this app
   // runApp(MyApp(
