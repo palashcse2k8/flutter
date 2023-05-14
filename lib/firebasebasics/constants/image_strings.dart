@@ -15,3 +15,9 @@ const String appGoogleLogo = "assets/logo/google_logo.png";
 
 // --- Forget Password ---
 const String appForgetPasswordImage = "assets/images/forget_password/forget-password.jpg";
+
+// ---- Dash Board ---
+const String appDashBoardImage1 = "assets/images/dashboard/dash_01.jpg";
+const String appDashBoardImage2 = "assets/images/dashboard/dash_02.jpg";
+const String appDashBoardTopCourseImage1 = "assets/images/dashboard/dash_03.jpg";
+const String appDashBoardTopCourseImage2 = "assets/images/dashboard/dash_04.jpg";

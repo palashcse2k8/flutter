@@ -81,6 +81,7 @@ flutter:
     - assets/images/welcome_screen_images/
     - assets/logo/
     - assets/images/forget_password/
+    - assets/images/dashboard/
 
   fonts:
     - family: OpenSans

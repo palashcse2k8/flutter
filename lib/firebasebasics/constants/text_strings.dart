@@ -50,4 +50,17 @@ const String appOTPTitleTxt = "CO\nDE";
 const String appOTPSubTitleTxt = "Verification";
 const String appOTPLabelTxt = "Enter the verification code sent at ";
 
+// --- DashBoard ---
+const String appDashBoardTitle = "Hey, Mosiur Rahman";
+const String appDashBoardHeading = "Explore courses";
+const String appDashBoardSearch = "Search...";
+const String appDashBoardBannerTitle1 = "Android for Beginners";
+const String appDashBoardBannerTitle2 = "JAVA";
+const String appDashBoardBannerSubTitle1 = "10 Lessons";
+const String appDashBoardBannerSubTitle2 = "5 Lessons";
+const String appDashBoardViewAllButton = "View All";
+const String appDashBoardTopCoursesTxt = "Top Courses";
+
+
+
 
